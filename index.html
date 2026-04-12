@@ -28,7 +28,6 @@
             padding: 0 32px;
         }
 
-        /* buttons & elements */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -71,7 +70,6 @@
             color: white;
         }
 
-        /* Professional language switcher with flags */
         .lang-switch {
             display: flex;
             gap: 12px;
@@ -162,14 +160,6 @@
             margin-bottom: 12px;
         }
 
-        .card .btn-sm {
-            margin-top: auto;
-            align-self: flex-start;
-            margin-top: 24px;
-            font-size: 0.85rem;
-            padding: 6px 18px;
-        }
-
         .hero {
             padding: 40px 0 20px 0;
         }
@@ -245,6 +235,49 @@
             padding: 48px 40px;
             margin: 20px 0;
         }
+        /* demo video section */
+        .demo-videos {
+            background: linear-gradient(145deg, #F6FAFE 0%, #FFFFFF 100%);
+            border-radius: 48px;
+            padding: 56px 32px;
+            margin: 48px 0;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.05);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .video-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+            border: 1px solid #EAF0F5;
+        }
+        .video-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 32px -12px rgba(0,0,0,0.12);
+        }
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+        .video-caption {
+            padding: 18px 20px 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #1A2C3E;
+            border-top: 1px solid #EFF3F8;
+            background: #FFFFFF;
+        }
+        .video-caption i {
+            color: #1D7A9C;
+            margin-right: 8px;
+        }
         footer {
             background: #0F2A38;
             color: #D9E4EC;
@@ -269,10 +302,46 @@
             border-color: #2C5568;
             margin: 24px 0;
         }
+        /* policy modal */
+        .modal-policy {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        .policy-content {
+            background: white;
+            max-width: 750px;
+            width: 90%;
+            border-radius: 40px;
+            padding: 32px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .modal-close-policy {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #7F8C8D;
+        }
+        .policy-list {
+            margin: 20px 0 20px 20px;
+        }
         @media (max-width: 900px) {
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
             .hero-grid { flex-direction: column-reverse; text-align: center; }
             .spec-list { justify-content: center; }
+            .video-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
@@ -312,18 +381,9 @@
             color: #1D7A9C;
             margin-right: 8px;
         }
-
-        /* Certification badges styling */
         .cert-badges {
             margin-top: 20px;
             text-align: center;
-        }
-        .cert-badges h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #0B5E7E;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
         }
         .badges-container {
             display: flex;
@@ -333,71 +393,18 @@
         }
         .badges-container > div {
             width: 120px;
-            transition: transform 0.2s ease;
         }
-        .badges-container > div:hover {
-            transform: translateY(-3px);
-        }
-        /* Adjust embedded iframe sizing from Credly */
         .badges-container iframe {
             max-width: 100%;
         }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(4px);
-        }
-        .modal-content {
-            background: white;
-            max-width: 700px;
-            width: 90%;
-            border-radius: 40px;
-            padding: 32px;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        .modal-close {
-            position: absolute;
-            top: 24px;
-            right: 28px;
-            font-size: 1.8rem;
+        .policy-link {
             cursor: pointer;
-            color: #7F8C8D;
-            transition: 0.2s;
+            text-decoration: underline;
+            transition: color 0.2s;
         }
-        .modal-close:hover {
-            color: #1D7A9C;
-        }
-        .service-detail-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-        .service-detail-section {
-            margin: 24px 0;
-        }
-        .service-detail-section h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #0B5E7E;
-        }
-        .service-detail-section ul {
-            padding-left: 20px;
-        }
-        .service-detail-section li {
-            margin: 8px 0;
+        .policy-link:hover {
+            color: white;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -416,7 +423,7 @@
     <div class="container hero">
         <div class="hero-grid">
             <div class="hero-content">
-                <span class="hero-badge" data-i18n="hero_badge">Freelance SAP Consultant · S/4HANA Public Cloud & Signavio</span>
+                <span class="hero-badge" data-i18n="hero_badge">SAP Consultant · S/4HANA Public Cloud, Cloud ALM & Signavio</span>
                 <h1 class="hero-name">Liz Mariela Cespedes Lezcano</h1>
                 <p class="hero-desc" data-i18n="hero_desc">Hey! I'm Liz — nice to meet you! I'm an SAP Certified Consultant specialized in S/4HANA Public Cloud (Sourcing & Procurement), SAP Cloud ALM, and SAP Signavio. I help businesses streamline processes, accelerate cloud transitions, and achieve sustainable value. Based in Logroño, Spain, I travel to Germany and Switzerland to support your projects.</p>
                 <div class="spec-list">
@@ -435,18 +442,12 @@
                 <img class="profile-photo" src="Gemini_Generated_Image_jizjcojizjcojizj.png" alt="Liz Mariela Cespedes Lezcano" onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=Liz';">
                 <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="location">Logroño, Spain (travel to Germany, Switzerland)</span></p>
                 <p style="font-size: 0.85rem; margin-top: 8px;">⚡ 3 years SAP consulting · 6 years logistics & SAP MM</p>
-                
-                <!-- CERTIFICATIONS SECTION: 4 Credly badges added here -->
                 <div class="cert-badges">
-                    <h4 data-i18n="cert_title">🎓 SAP Certifications</h4>
+                    <h4 data-i18n="cert_title">🎓 Certifications</h4>
                     <div class="badges-container">
-                        <!-- Badge 1 -->
                         <div data-iframe-width="120" data-iframe-height="216" data-share-badge-id="06e4535f-bb4c-4f51-b92a-5ed31997d122" data-share-badge-host="https://www.credly.com"></div>
-                        <!-- Badge 2 -->
                         <div data-iframe-width="120" data-iframe-height="216" data-share-badge-id="571c3994-b2c4-4367-8e67-cd548db69588" data-share-badge-host="https://www.credly.com"></div>
-                        <!-- Badge 3 -->
                         <div data-iframe-width="120" data-iframe-height="216" data-share-badge-id="7db6f579-858d-4f5f-b28e-7e174123ee74" data-share-badge-host="https://www.credly.com"></div>
-                        <!-- Badge 4 -->
                         <div data-iframe-width="120" data-iframe-height="216" data-share-badge-id="3863f2fa-0657-43c0-8fad-af328f301080" data-share-badge-host="https://www.credly.com"></div>
                     </div>
                 </div>
@@ -464,25 +465,39 @@
         </div>
     </div>
 
-    <!-- Vision & Mission (Freelance-focused) -->
+    <!-- Vision & Mission -->
     <div class="container">
         <div class="vision-mission">
             <div class="grid-2" style="gap: 48px;">
-                <div>
-                    <i class="fas fa-eye inline-icon"></i>
-                    <h3 data-i18n="vision_title">Vision</h3>
-                    <p data-i18n="vision_text">As a freelance SAP Certified consultant, I aim to be the trusted partner that businesses turn to for agile, high‑quality SAP expertise. I focus on delivering tangible results — from S/4HANA Public Cloud implementations to process optimization with Signavio — without the overhead of large consulting firms. My vision is to empower my clients with direct, personalized support that fits their unique needs and timelines.</p>
-                </div>
-                <div>
-                    <i class="fas fa-bullseye inline-icon"></i>
-                    <h3 data-i18n="mission_title">Mission</h3>
-                    <p data-i18n="mission_text">My mission is to provide flexible, freelance SAP services that combine deep technical knowledge with a practical, business‑oriented mindset. I work hands‑on alongside your teams to ensure successful go‑lives, smooth integrations, and effective knowledge transfer. I strive to make every engagement feel like a true collaboration — transparent, efficient, and focused on your long‑term success.</p>
-                </div>
+                <div><i class="fas fa-eye inline-icon"></i><h3 data-i18n="vision_title">Vision</h3><p data-i18n="vision_text">As a freelance SAP Certified consultant, I aim to be the trusted partner that businesses turn to for agile, high‑quality SAP expertise. I focus on delivering tangible results — from S/4HANA Public Cloud implementations to process optimization with Signavio — without the overhead of large consulting firms. My vision is to empower my clients with direct, personalized support that fits their unique needs and timelines.</p></div>
+                <div><i class="fas fa-bullseye inline-icon"></i><h3 data-i18n="mission_title">Mission</h3><p data-i18n="mission_text">My mission is to provide flexible, freelance SAP services that combine deep technical knowledge with a practical, business‑oriented mindset. I work hands‑on alongside your teams to ensure successful go‑lives, smooth integrations, and effective knowledge transfer. I strive to make every engagement feel like a true collaboration — transparent, efficient, and focused on your long‑term success.</p></div>
             </div>
         </div>
     </div>
 
-    <!-- About: Professional background + companies -->
+    <!-- DEMO VIDEOS SECTION (Professional Center) -->
+    <div class="container demo-videos">
+        <div style="text-align: center;">
+            <span class="hero-badge"><i class="fas fa-play-circle"></i> <span data-i18n="demo_badge">Live demos & insights</span></span>
+            <h2 class="section-title" data-i18n="demo_title">See SAP solutions and Celonis in action</h2>
+        </div>
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/hLoUFAolRjM?si=HH8IbcsVXF0r3DYd" title="SAP S/4HANA Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="video-caption"><i class="fas fa-cloud-upload-alt"></i> S/4HANA – Sourcing & Procurement</div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/Wem8l0QRchs?si=0eQOD1r07EY0OvxJ" title="Process Transformation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="video-caption"><i class="fas fa-project-diagram"></i> Process Mining </div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/XIRf29Rumbw?si=4RPYPigc3ChM9BlD" title="SAP S/4 HANA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="video-caption"><i class="fas fa-chart-network"></i> SAP S/4 HANA </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Companies -->
     <div class="container">
         <div style="text-align: center; margin-bottom: 20px;">
             <span class="hero-badge" data-i18n="about_badge">Professional journey</span>
@@ -498,136 +513,65 @@
         </div>
     </div>
 
-    <!-- SERVICES with detailed modals -->
+    <!-- SERVICES SECTION -->
     <div id="services" style="background: #FBFDFF; padding: 60px 0;">
         <div class="container">
-            <div style="text-align: center;">
-                <span class="hero-badge"><i class="fas fa-cog"></i> <span data-i18n="services_badge">My core services</span></span>
-                <h2 class="section-title" data-i18n="services_title">SAP solutions tailored to your journey</h2>
-                <p class="section-sub" data-i18n="services_sub">From Public Cloud implementation to process mining and governance.</p>
-            </div>
+            <div style="text-align: center;"><span class="hero-badge"><i class="fas fa-cog"></i> <span data-i18n="services_badge">My core services</span></span>
+            <h2 class="section-title" data-i18n="services_title">SAP solutions tailored to your journey</h2>
+            <p class="section-sub" data-i18n="services_sub">From Public Cloud implementation to process mining and governance.</p></div>
             <div class="grid-3">
-                <!-- Service 1 -->
-                <div class="card" data-service="s4">
-                    <i class="fas fa-cloud-upload-alt icon-large"></i>
-                    <h3>SAP S/4HANA Public Cloud <br><span style="font-size:1rem;">Sourcing & Procurement</span></h3>
-                    <p data-i18n="service1">Configuration, testing, user documentation, and go-live support. I help you leverage best‑practice procurement processes in the cloud.</p>
-                    <button class="btn-outline btn-sm" data-modal="s4" style="margin-top: 24px; align-self: flex-start;"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button>
-                </div>
-                <!-- Service 2 -->
-                <div class="card" data-service="alm">
-                    <i class="fas fa-chart-network icon-large"></i>
-                    <h3>SAP Cloud ALM</h3>
-                    <p data-i18n="service2">Implementation, operations, integration & API management. Seamless connection with Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM, and more.</p>
-                    <button class="btn-outline btn-sm" data-modal="alm" style="margin-top: 24px; align-self: flex-start;"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button>
-                </div>
-                <!-- Service 3 -->
-                <div class="card" data-service="signavio">
-                    <i class="fas fa-project-diagram icon-large"></i>
-                    <h3>SAP Signavio</h3>
-                    <p data-i18n="service3">Process Mining (analyzing real processes, identifying bottlenecks), Process Modeling (BPMN), Customer Journey Mapping, Governance & Repository Setup, S/4HANA Readiness (fit‑gap analysis), and Training & Adoption.</p>
-                    <button class="btn-outline btn-sm" data-modal="signavio" style="margin-top: 24px; align-self: flex-start;"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button>
-                </div>
+                <div class="card"><i class="fas fa-cloud-upload-alt icon-large"></i><h3>SAP S/4HANA Public Cloud <br><span style="font-size:1rem;">Sourcing & Procurement</span></h3><p data-i18n="service1">Configuration, testing, user documentation, and go-live support. I help you leverage best‑practice procurement processes in the cloud.</p><button class="btn-outline btn-sm" data-modal="s4" style="margin-top: 24px;"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button></div>
+                <div class="card"><i class="fas fa-chart-network icon-large"></i><h3>SAP Cloud ALM</h3><p data-i18n="service2">Implementation, operations, integration & API management. Seamless connection with Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM, and more.</p><button class="btn-outline btn-sm" data-modal="alm"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button></div>
+                <div class="card"><i class="fas fa-project-diagram icon-large"></i><h3>SAP Signavio</h3><p data-i18n="service3">Process Mining, Process Modeling (BPMN), Customer Journey Mapping, Governance & Repository Setup, S/4HANA Readiness, and Training.</p><button class="btn-outline btn-sm" data-modal="signavio"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button></div>
+                <div class="card"><i class="fas fa-chalkboard-teacher icon-large"></i><h3>User Enablement & Support</h3><p data-i18n="service4">End‑user documentation, go‑live support, and adoption workshops. I ensure your teams are confident and productive from day one.</p><button class="btn-outline btn-sm" data-modal="enablement"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button></div>
+                <div class="card"><i class="fas fa-road icon-large"></i><h3>S/4HANA Readiness & Fit‑Gap</h3><p data-i18n="service5">Accelerate your transition to S/4HANA using Signavio for fit‑gap analysis, process harmonization, and cloud readiness assessments.</p><button class="btn-outline btn-sm" data-modal="readiness"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button></div>
+                <div class="card"><i class="fas fa-globe-europe icon-large"></i><h3>Flexible Location Support</h3><p data-i18n="service6">Based in Logroño, Spain, available to travel to Germany, Switzerland, or work remotely. I bring hands‑on consulting wherever you need it.</p><button class="btn-outline btn-sm" data-modal="flexible"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button></div>
             </div>
-            <div class="grid-3" style="margin-top: 32px;">
-                <!-- Service 4 -->
-                <div class="card" data-service="enablement">
-                    <i class="fas fa-chalkboard-teacher icon-large"></i>
-                    <h3>User Enablement & Support</h3>
-                    <p data-i18n="service4">End‑user documentation, go‑live support, and adoption workshops. I ensure your teams are confident and productive from day one.</p>
-                    <button class="btn-outline btn-sm" data-modal="enablement" style="margin-top: 24px; align-self: flex-start;"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button>
-                </div>
-                <!-- Service 5 -->
-                <div class="card" data-service="readiness">
-                    <i class="fas fa-road icon-large"></i>
-                    <h3>S/4HANA Readiness & Fit‑Gap</h3>
-                    <p data-i18n="service5">Accelerate your transition to S/4HANA using Signavio for fit‑gap analysis, process harmonization, and cloud readiness assessments.</p>
-                    <button class="btn-outline btn-sm" data-modal="readiness" style="margin-top: 24px; align-self: flex-start;"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button>
-                </div>
-                <!-- Service 6 -->
-                <div class="card" data-service="flexible">
-                    <i class="fas fa-globe-europe icon-large"></i>
-                    <h3>Flexible Location Support</h3>
-                    <p data-i18n="service6">Based in Logroño, Spain, available to travel to Germany, Switzerland, or work remotely. I bring hands‑on consulting wherever you need it.</p>
-                    <button class="btn-outline btn-sm" data-modal="flexible" style="margin-top: 24px; align-self: flex-start;"><i class="fas fa-info-circle"></i> <span data-i18n="learn_more">Learn more</span></button>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 48px;">
-                <a href="#contact" class="btn-primary"><i class="fas fa-calendar-alt"></i> <span data-i18n="book_call">Book a discovery call</span></a>
-            </div>
+            <div style="text-align: center; margin-top: 48px;"><a href="#contact" class="btn-primary"><i class="fas fa-calendar-alt"></i> <span data-i18n="book_call">Book a discovery call</span></a></div>
         </div>
     </div>
 
-    <!-- Modal Container -->
-    <div id="serviceModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div id="modalBody"></div>
-        </div>
-    </div>
-
-    <!-- Additional Expertise: Integration & API Management -->
+    <!-- Integration & Process Mining extra -->
     <div class="container">
         <div class="grid-2" style="margin: 40px 0 20px;">
-            <div class="card">
-                <i class="fas fa-plug icon-large"></i>
-                <h3>Integration & API Management</h3>
-                <p data-i18n="integration">Connect SAP with Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM, and other tools. I design robust, scalable integrations that unify your landscape.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-chart-pie icon-large"></i>
-                <h3>Process Mining & Improvement</h3>
-                <p data-i18n="process_mining">Using SAP Signavio Process Intelligence, I uncover hidden bottlenecks, simulate improvements, and help you build a continuous improvement culture.</p>
-            </div>
+            <div class="card"><i class="fas fa-plug icon-large"></i><h3>Integration & API Management</h3><p data-i18n="integration">Connect SAP with Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM, and other tools. I design robust, scalable integrations that unify your landscape.</p></div>
+            <div class="card"><i class="fas fa-chart-pie icon-large"></i><h3>Process Mining & Improvement</h3><p data-i18n="process_mining">Using SAP Signavio Process Intelligence, I uncover hidden bottlenecks, simulate improvements, and help you build a continuous improvement culture.</p></div>
         </div>
     </div>
 
     <!-- Contact Form -->
     <div id="contact" class="container" style="padding-top: 20px;">
         <div class="contact-card">
-            <div style="text-align: center; margin-bottom: 32px;">
-                <i class="fas fa-envelope-open-text" style="font-size: 2.5rem; color: #1D7A9C;"></i>
-                <h2 class="section-title" style="margin-top: 12px;" data-i18n="contact_title">Let’s shape your SAP future</h2>
-                <p data-i18n="contact_sub">Ready to bring my expertise to your projects? Reach out and let's collaborate.</p>
-            </div>
+            <div style="text-align: center; margin-bottom: 32px;"><i class="fas fa-envelope-open-text" style="font-size: 2.5rem; color: #1D7A9C;"></i><h2 class="section-title" style="margin-top: 12px;" data-i18n="contact_title">Let’s shape your SAP future</h2><p data-i18n="contact_sub">Ready to bring my expertise to your projects? Reach out and let's collaborate.</p></div>
             <form id="contactForm" action="#" method="post">
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="Your email *" required>
-                </div>
-                <div class="form-group checkbox" style="display: flex; align-items:center; gap:10px;">
-                    <input type="checkbox" id="newsletter" checked style="width: auto;">
-                    <label for="newsletter" data-i18n="newsletter">Yes, subscribe me to the monthly SAP insights & newsletter.</label>
-                </div>
-                <div style="text-align: center; margin-top: 28px;">
-                    <button type="submit" class="btn-primary" style="border: none;"><i class="fas fa-paper-plane"></i> <span data-i18n="submit_btn">Submit & connect</span></button>
-                </div>
+                <div class="form-group"><input type="email" id="email" placeholder="Your email *" required></div>
+                <div class="form-group checkbox" style="display: flex; align-items:center; gap:10px;"><input type="checkbox" id="newsletter" checked style="width: auto;"><label for="newsletter" data-i18n="newsletter">Yes, subscribe me to the monthly SAP insights & newsletter.</label></div>
+                <div style="text-align: center; margin-top: 28px;"><button type="submit" class="btn-primary" style="border: none;"><i class="fas fa-paper-plane"></i> <span data-i18n="submit_btn">Submit & connect</span></button></div>
             </form>
         </div>
     </div>
 </main>
 
+<!-- Policy Modal -->
+<div id="policyModal" class="modal-policy">
+    <div class="policy-content">
+        <span class="modal-close-policy">&times;</span>
+        <div id="policyBody">
+            <h2 id="policyTitle" style="color:#0B5E7E;">Privacy Policy</h2>
+            <div id="policyText"></div>
+        </div>
+    </div>
+</div>
+
 <footer>
     <div class="container">
         <div class="footer-grid">
-            <div>
-                <h3 style="color:white; margin-bottom: 16px;"><i class="fas fa-user-check"></i> Mariela Lezcano · SAP | Business Transformation Consultant</h3>
-                <p data-i18n="footer_tagline">Agile, expert, and human‑centered SAP consulting. Your partner for S/4HANA Public Cloud Sourcing & Procurement, Cloud ALM, and Signavio.</p>
-                <div class="social-icons" style="margin-top: 20px;">
-                    <a href="https://www.linkedin.com/in/liz-mariela-cespedes-lezcano-375aa07a/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div>
-                <h4 style="color:white; margin-bottom: 16px;"><span data-i18n="contact">Contact</span></h4>
-                <p><i class="fas fa-phone-alt"></i> +34 640832388</p>
-                <p><i class="fas fa-envelope"></i> mlezcano@mlcloudsolutions.com</p>
-                <p><i class="fas fa-map-pin"></i> Logroño, Spain · Travel to DE/CH</p>
-            </div>
-            <div>
-                <h4 style="color:white; margin-bottom: 16px;" data-i18n="legal">Legal</h4>
-                <p><a href="#" style="color:#CCE2EC; text-decoration:none;" data-i18n="privacy">Privacy Policy</a></p>
-                <p><a href="#" style="color:#CCE2EC; text-decoration:none;" data-i18n="terms">Terms & Conditions</a></p>
-                <p><a href="#" style="color:#CCE2EC; text-decoration:none;" data-i18n="refund">Refund Policy</a></p>
+            <div><h3 style="color:white; margin-bottom: 16px;"><i class="fas fa-user-check"></i> Mariela Lezcano · SAP | Business Transformation Consultant</h3><p data-i18n="footer_tagline">Agile, expert, and human‑centered SAP consulting. Your partner for S/4HANA Public Cloud Sourcing & Procurement, Cloud ALM, and Signavio.</p><div class="social-icons" style="margin-top: 20px;"><a href="https://www.linkedin.com/in/liz-mariela-cespedes-lezcano-375aa07a/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+            <div><h4 style="color:white; margin-bottom: 16px;"><span data-i18n="contact">Contact</span></h4><p><i class="fas fa-phone-alt"></i> +34 640832388</p><p><i class="fas fa-envelope"></i> mlezcano@mlcloudsolutions.com</p><p><i class="fas fa-map-pin"></i> Logroño, Spain · Travel to DE/CH</p></div>
+            <div><h4 style="color:white; margin-bottom: 16px;" data-i18n="legal">Legal</h4>
+                <p><a class="policy-link" data-policy="privacy" style="color:#CCE2EC; text-decoration:none;" data-i18n="privacy">Privacy Policy</a></p>
+                <p><a class="policy-link" data-policy="terms" style="color:#CCE2EC; text-decoration:none;" data-i18n="terms">Terms & Conditions</a></p>
+                <p><a class="policy-link" data-policy="refund" style="color:#CCE2EC; text-decoration:none;" data-i18n="refund">Refund Policy</a></p>
             </div>
         </div>
         <hr>
@@ -636,291 +580,48 @@
 </footer>
 
 <script>
-    // Multi-language dictionary (full, including modal texts)
-    const translations = {
-        en: {
-            hero_badge: "Freelance SAP Consultant · S/4HANA Public Cloud & Signavio",
-            hero_desc: "Hey! I'm Liz — nice to meet you! I'm a freelance SAP consultant specialized in S/4HANA Public Cloud (Sourcing & Procurement), SAP Cloud ALM, and SAP Signavio. I help businesses streamline processes, accelerate cloud transitions, and achieve sustainable value. Based in Logroño, Spain, I travel to Germany and Switzerland to support your projects.",
-            cta_collab: "Let's collaborate",
-            cta_services: "Explore services",
-            location: "Logroño, Spain (travel to Germany, Switzerland)",
-            quote: "\"I combine deep SAP expertise with a pragmatic, human approach. Process excellence doesn't have to be overwhelming — let's make it work for you.\"",
-            vision_title: "Vision",
-            vision_text: "As a freelance SAP consultant, I aim to be the trusted partner that businesses turn to for agile, high‑quality SAP expertise. I focus on delivering tangible results — from S/4HANA Public Cloud implementations to process optimization with Signavio — without the overhead of large consulting firms. My vision is to empower my clients with direct, personalized support that fits their unique needs and timelines.",
-            mission_title: "Mission",
-            mission_text: "My mission is to provide flexible, freelance SAP services that combine deep technical knowledge with a practical, business‑oriented mindset. I work hands‑on alongside your teams to ensure successful go‑lives, smooth integrations, and effective knowledge transfer. I strive to make every engagement feel like a true collaboration — transparent, efficient, and focused on your long‑term success.",
-            about_badge: "Professional journey",
-            about_title: "Experience that makes the difference",
-            about_sub: "3 years as SAP consultant, 6 years in logistics & SAP MM. I've worked with top industrial and energy companies.",
-            services_badge: "My core services",
-            services_title: "SAP solutions tailored to your journey",
-            services_sub: "From Public Cloud implementation to process mining and governance.",
-            service1: "Configuration, testing, user documentation, and go-live support. I help you leverage best‑practice procurement processes in the cloud.",
-            service2: "Implementation, operations, integration & API management. Seamless connection with Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM, and more.",
-            service3: "Process Mining (analyzing real processes, identifying bottlenecks), Process Modeling (BPMN), Customer Journey Mapping, Governance & Repository Setup, S/4HANA Readiness (fit‑gap analysis), and Training & Adoption.",
-            service4: "End‑user documentation, go‑live support, and adoption workshops. I ensure your teams are confident and productive from day one.",
-            service5: "Accelerate your transition to S/4HANA using Signavio for fit‑gap analysis, process harmonization, and cloud readiness assessments.",
-            service6: "Based in Logroño, Spain, available to travel to Germany, Switzerland, or work remotely. I bring hands‑on consulting wherever you need it.",
-            integration: "Connect SAP with Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM, and other tools. I design robust, scalable integrations that unify your landscape.",
-            process_mining: "Using SAP Signavio Process Intelligence, I uncover hidden bottlenecks, simulate improvements, and help you build a continuous improvement culture.",
-            contact_title: "Let’s shape your SAP future",
-            contact_sub: "Ready to bring my expertise to your projects? Reach out and let's collaborate.",
-            newsletter: "Yes, subscribe me to the monthly SAP insights & newsletter.",
-            submit_btn: "Submit & connect",
-            footer_tagline: "Agile, expert, and human‑centered SAP consulting. Your partner for S/4HANA Public Cloud, Cloud ALM, and Signavio.",
-            contact: "Contact",
-            legal: "Legal",
-            privacy: "Privacy Policy",
-            terms: "Terms & Conditions",
-            refund: "Refund Policy",
-            book_call: "Book a discovery call",
-            learn_more: "Learn more",
-            cert_title: "🎓 SAP Certifications"
-        },
-        es: {
-            hero_badge: "Consultora SAP Freelance · S/4HANA Public Cloud & Signavio",
-            hero_desc: "¡Hola! Soy Liz — encantada de conocerte. Soy consultora certificada SAP freelance especializada en S/4HANA Public Cloud (Sourcing & Procurement), SAP Cloud ALM y SAP Signavio. Ayudo a las empresas a optimizar procesos, acelerar la transición a la nube y generar valor sostenible. Desde Logroño, España, viajo a Alemania y Suiza para apoyar tus proyectos.",
-            cta_collab: "Colaboremos",
-            cta_services: "Ver servicios",
-            location: "Logroño, España (viajes a Alemania, Suiza)",
-            quote: "\"Combino experiencia SAP con un enfoque pragmático y humano. La excelencia en procesos no tiene que ser abrumadora — hagámosla funcionar para ti.\"",
-            vision_title: "Visión",
-            vision_text: "Como consultora SAP freelance, mi objetivo es ser el socio de confianza al que las empresas acuden para obtener experiencia SAP ágil y de alta calidad. Me enfoco en entregar resultados tangibles — desde implementaciones de S/4HANA Public Cloud hasta la optimización de procesos con Signavio — sin los costes indirectos de las grandes consultoras. Mi visión es empoderar a mis clientes con un soporte directo y personalizado que se adapte a sus necesidades y plazos únicos.",
-            mission_title: "Misión",
-            mission_text: "Mi misión es ofrecer servicios SAP freelance flexibles que combinen un profundo conocimiento técnico con una mentalidad práctica y orientada a los negocios. Trabajo codo a codo con tus equipos para garantizar go‑lives exitosos, integraciones fluidas y una transferencia de conocimiento efectiva. Me esfuerzo para que cada colaboración sea una verdadera sinergia — transparente, eficiente y centrada en tu éxito a largo plazo.",
-            about_badge: "Trayectoria profesional",
-            about_title: "Experiencia que marca la diferencia",
-            about_sub: "3 años como consultora SAP, 6 años en logística y SAP MM. He trabajado con empresas industriales y energéticas de primer nivel.",
-            services_badge: "Mis servicios principales",
-            services_title: "Soluciones SAP adaptadas a tu viaje",
-            services_sub: "Desde implementación en nube pública hasta minería de procesos y gobernanza.",
-            service1: "Configuración, pruebas, documentación de usuario y soporte go-live. Te ayudo a aprovechar las mejores prácticas de aprovisionamiento en la nube.",
-            service2: "Implementación, operaciones, integración y gestión de API. Conexión fluida con Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM y más.",
-            service3: "Process Mining (análisis real de procesos, identificación de cuellos de botella), Modelado de procesos (BPMN), Customer Journey Mapping, Configuración de repositorio y gobernanza, Preparación para S/4HANA (fit‑gap), y Formación y adopción.",
-            service4: "Documentación de usuario final, soporte go-live y talleres de adopción. Me aseguro de que tus equipos sean productivos desde el primer día.",
-            service5: "Acelera tu transición a S/4HANA con Signavio para análisis fit‑gap, armonización de procesos y evaluación de preparación para la nube.",
-            service6: "Desde Logroño, España, disponible para viajar a Alemania, Suiza o trabajar de forma remota. Aporto consultoría práctica donde la necesites.",
-            integration: "Conecta SAP con Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM y otras herramientas. Diseño integraciones robustas y escalables que unifican tu ecosistema.",
-            process_mining: "Utilizando SAP Signavio Process Intelligence, descubro cuellos de botella ocultos, simulo mejoras y ayudo a construir una cultura de mejora continua.",
-            contact_title: "Demos forma a tu futuro SAP",
-            contact_sub: "¿Lista para incorporar mi experiencia a tus proyectos? Contáctame y colaboremos.",
-            newsletter: "Sí, suscríbeme al boletín mensual con insights SAP.",
-            submit_btn: "Enviar y conectar",
-            footer_tagline: "Consultoría SAP ágil, experta y centrada en las personas. Tu partner para S/4HANA Public Cloud, Cloud ALM y Signavio.",
-            contact: "Contacto",
-            legal: "Aviso legal",
-            privacy: "Política de privacidad",
-            terms: "Términos y condiciones",
-            refund: "Política de reembolso",
-            book_call: "Reserva una llamada",
-            learn_more: "Más información",
-            cert_title: "🎓 Certificaciones SAP"
-        },
-        de: {
-            hero_badge: "Freiberufliche SAP-Beraterin · S/4HANA Public Cloud & Signavio",
-            hero_desc: "Hallo, ich bin Liz — schön, dich kennenzulernen! Ich bin freiberufliche SAP Certified-Beraterin mit Fokus auf S/4HANA Public Cloud (Sourcing & Procurement), SAP Cloud ALM und SAP Signavio. Ich unterstütze Unternehmen dabei, Prozesse zu optimieren, den Cloud-Übergang zu beschleunigen und nachhaltigen Wert zu schaffen. Mit Sitz in Logroño, Spanien, reise ich nach Deutschland und in die Schweiz, um Ihre Projekte zu begleiten.",
-            cta_collab: "Gemeinsam arbeiten",
-            cta_services: "Services entdecken",
-            location: "Logroño, Spanien (Reisen nach Deutschland, Schweiz)",
-            quote: "\"Ich verbinde fundierte SAP-Expertise mit einem pragmatischen, menschlichen Ansatz. Prozessexzellenz muss nicht überwältigend sein — lassen Sie es uns für Sie umsetzen.\"",
-            vision_title: "Vision",
-            vision_text: "Als freiberufliche SAP-Beraterin möchte ich der vertrauenswürdige Partner sein, an den sich Unternehmen wenden, um agile, hochwertige SAP-Expertise zu erhalten. Ich konzentriere mich auf greifbare Ergebnisse — von S/4HANA Public Cloud-Implementierungen bis zur Prozessoptimierung mit Signavio — ohne den Overhead großer Beratungsfirmen. Meine Vision ist es, meine Kunden mit direkter, persönlicher Unterstützung zu stärken, die auf ihre individuellen Bedürfnisse und Zeitpläne zugeschnitten ist.",
-            mission_title: "Mission",
-            mission_text: "Meine Mission ist es, flexible, freiberufliche SAP-Dienstleistungen anzubieten, die tiefes technisches Wissen mit einer praktischen, geschäftsorientierten Denkweise verbinden. Ich arbeite Hand in Hand mit Ihren Teams, um erfolgreiche Go-Lives, reibungslose Integrationen und effektiven Wissenstransfer zu gewährleisten. Ich strebe danach, dass jede Zusammenarbeit eine echte Partnerschaft ist — transparent, effizient und auf Ihren langfristigen Erfolg ausgerichtet.",
-            about_badge: "Beruflicher Werdegang",
-            about_title: "Erfahrung, die den Unterschied macht",
-            about_sub: "3 Jahre als SAP-Beraterin, 6 Jahre in Logistik und SAP MM. Ich habe für führende Industrie- und Energieunternehmen gearbeitet.",
-            services_badge: "Meine Kernservices",
-            services_title: "SAP-Lösungen für Ihre individuelle Reise",
-            services_sub: "Von Public Cloud-Implementierung bis Process Mining und Governance.",
-            service1: "Konfiguration, Tests, Benutzerdokumentation und Go-Live-Unterstützung. Ich helfe Ihnen, Best-Practice-Beschaffungsprozesse in der Cloud zu nutzen.",
-            service2: "Implementierung, Betrieb, Integration & API-Management. Nahtlose Anbindung an Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM und mehr.",
-            service3: "Process Mining (Analyse realer Prozesse, Identifikation von Engpässen), Prozessmodellierung (BPMN), Customer Journey Mapping, Governance & Repository-Setup, S/4HANA-Readiness (Fit‑Gap-Analyse) sowie Schulung und Adoption.",
-            service4: "Endbenutzer-Dokumentation, Go-Live-Support und Einführungsworkshops. Ich stelle sicher, dass Ihre Teams von Tag an produktiv sind.",
-            service5: "Beschleunigen Sie Ihre S/4HANA-Transition mit Signavio für Fit‑Gap-Analysen, Prozessharmonisierung und Cloud-Readiness-Assessments.",
-            service6: "Mit Sitz in Logroño, Spanien, bin ich bereit, nach Deutschland, in die Schweiz zu reisen oder remote zu arbeiten. Ich bringe praxisnahe Beratung dorthin, wo Sie sie brauchen.",
-            integration: "Verbinden Sie SAP mit Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM und anderen Tools. Ich entwerfe robuste, skalierbare Integrationen, die Ihre Landschaft vereinheitlichen.",
-            process_mining: "Mit SAP Signavio Process Intelligence decke ich versteckte Engpässe auf, simuliere Verbesserungen und helfe Ihnen, eine Kultur der kontinuierlichen Verbesserung aufzubauen.",
-            contact_title: "Gestalten wir Ihre SAP-Zukunft",
-            contact_sub: "Bereit, meine Expertise in Ihre Projekte einzubringen? Kontaktieren Sie mich und lassen Sie uns zusammenarbeiten.",
-            newsletter: "Ja, abonnieren Sie mich für den monatlichen SAP-Insights-Newsletter.",
-            submit_btn: "Absenden & verbinden",
-            footer_tagline: "Agile, fachkundige und menschenzentrierte SAP-Beratung. Ihr Partner für S/4HANA Public Cloud, Cloud ALM und Signavio.",
-            contact: "Kontakt",
-            legal: "Rechtliches",
-            privacy: "Datenschutzerklärung",
-            terms: "AGB",
-            refund: "Rückerstattungsrichtlinie",
-            book_call: "Erstgespräch vereinbaren",
-            learn_more: "Mehr erfahren",
-            cert_title: "🎓 SAP-Zertifizierungen"
-        }
+    const policyData = {
+        en: { privacy: "Privacy Policy: Your personal data is collected only for communication and service delivery. I do not share your information with third parties without consent. You have the right to access, rectify or delete your data by contacting mlezcano@mlcloudsolutions.com.", terms: "Terms & Conditions: All consulting services are provided under a freelance agreement. Project scope, deliverables, and timelines are defined per contract. Payment terms are agreed in advance.", refund: "Refund Policy: For digital services and consulting, refunds are subject to the specific contract terms. Unused pre-paid hours may be refunded within 14 days of purchase, less administration fees." },
+        es: { privacy: "Política de Privacidad: Sus datos personales se recogen solo para comunicación y prestación de servicios. No comparto su información con terceros sin consentimiento. Tiene derecho a acceder, rectificar o eliminar sus datos contactando a mlezcano@mlcloudsolutions.com.", terms: "Términos y Condiciones: Todos los servicios de consultoría se proporcionan bajo un acuerdo freelance. El alcance, entregables y plazos se definen por contrato. Los términos de pago se acuerdan por adelantado.", refund: "Política de Reembolso: Para servicios digitales y consultoría, los reembolsos están sujetos a los términos específicos del contrato. Las horas prepagas no utilizadas pueden reembolsarse dentro de los 14 días posteriores a la compra, menos gastos administrativos." },
+        de: { privacy: "Datenschutzerklärung: Ihre personenbezogenen Daten werden nur für die Kommunikation und Dienstleistungserbringung erhoben. Ich gebe Ihre Daten nicht ohne Zustimmung an Dritte weiter. Sie haben das Recht, Ihre Daten zu kontaktieren unter mlezcano@mlcloudsolutions.com zu berichtigen oder löschen zu lassen.", terms: "Allgemeine Geschäftsbedingungen: Alle Beratungsleistungen werden auf der Grundlage eines freiberuflichen Vertrags erbracht. Projektumfang, Ergebnisse und Zeitpläne werden vertraglich festgelegt. Zahlungsbedingungen werden im Voraus vereinbart.", refund: "Rückerstattungsrichtlinie: Für digitale Dienste und Beratung gelten die spezifischen Vertragsbedingungen. Nicht genutzte vorausbezahlte Stunden können innerhalb von 14 Tagen nach Kauf abzüglich Verwaltungsgebühren erstattet werden." }
     };
-
-    // Detailed modal content (base English, used for dynamic translation)
-    const modalDetails = {
-        s4: {
-            title: "SAP S/4HANA Public Cloud – Sourcing & Procurement",
-            sections: [
-                { heading: "What I deliver", content: ["End-to-end configuration of Sourcing & Procurement processes", "Testing and quality assurance (unit, integration, UAT)", "Creation of user documentation and training materials", "Go-live support and post-go-live hypercare"] },
-                { heading: "Key benefits", content: ["Accelerated cloud adoption with SAP best practices", "Streamlined procurement cycles and cost reduction", "Seamless integration with SAP Business Network", "Scalable solution ready for growth"] },
-                { heading: "My approach", content: "I work closely with your procurement and IT teams to ensure the solution fits your business model, from initial setup to user adoption." }
-            ]
-        },
-        alm: {
-            title: "SAP Cloud ALM – Implementation, Operations & Integration",
-            sections: [
-                { heading: "What I cover", content: ["Implementation and configuration of SAP Cloud ALM", "Operations management and monitoring", "Integration & API management with Microsoft Teams, Jira, Azure DevOps, LeanIX, Signavio, Build Process Automation, ServiceNow, CHARM, etc.", "End-to-end visibility across your landscape"] },
-                { heading: "Why Cloud ALM", content: ["Single source of truth for implementation and operations", "Seamless integration with SAP and third-party tools", "Proactive monitoring and alerting", "Accelerated time-to-value"] },
-                { heading: "My role", content: "I help you set up, configure, and optimize Cloud ALM to ensure your projects run smoothly and your operations remain stable." }
-            ]
-        },
-        signavio: {
-            title: "SAP Signavio – Process Transformation Suite",
-            sections: [
-                { heading: "Process Mining", content: ["Analyze real process data to uncover bottlenecks", "Identify improvement opportunities and root causes", "Continuous monitoring and performance tracking"] },
-                { heading: "Process Modeling (BPMN)", content: ["Design and document processes in Signavio Process Manager", "Collaborative modeling with stakeholders", "Governance and repository setup"] },
-                { heading: "Customer Journey & S/4HANA Readiness", content: ["Map customer experiences and touchpoints", "Fit‑gap analysis for S/4HANA transition", "Training and adoption support"] }
-            ]
-        },
-        enablement: {
-            title: "User Enablement & Support",
-            sections: [
-                { heading: "Services", content: ["End-user documentation and quick reference guides", "Go‑live support and floorwalking", "Adoption workshops and power-user training", "Post-implementation help desk assistance"] },
-                { heading: "Outcome", content: "Empowered teams that confidently use SAP, reducing errors and increasing productivity from day one." }
-            ]
-        },
-        readiness: {
-            title: "S/4HANA Readiness & Fit‑Gap Analysis",
-            sections: [
-                { heading: "What I do", content: ["Use Signavio to perform fit‑gap analysis between current processes and S/4HANA best practices", "Process harmonization and simplification recommendations", "Cloud readiness assessment", "Migration roadmap planning"] },
-                { heading: "Value", content: "Minimize risks, avoid surprises, and accelerate your transition to S/4HANA with a clear, actionable plan." }
-            ]
-        },
-        flexible: {
-            title: "Flexible Location Support",
-            sections: [
-                { heading: "On-site & Remote", content: ["Based in Logroño, Spain", "Travel to Germany and Switzerland as needed", "Fully capable of remote consulting worldwide"] },
-                { heading: "My commitment", content: "I bring hands‑on consulting wherever you need it, ensuring you get the support that fits your project requirements." }
-            ]
-        }
-    };
-
-    let currentLang = "en";
-
-    function renderModal(serviceId) {
-        const details = modalDetails[serviceId];
-        if (!details) return;
+    function showPolicy(type) {
         const lang = currentLang;
-        const t = translations[lang];
-        const headingMap = {
-            "What I deliver": t.modal_what || (lang==='es'? "Lo que entrego" : (lang==='de'? "Was ich liefere" : "What I deliver")),
-            "Key benefits": t.modal_benefits || (lang==='es'? "Beneficios clave" : (lang==='de'? "Hauptvorteile" : "Key benefits")),
-            "My approach": t.modal_approach || (lang==='es'? "Mi enfoque" : (lang==='de'? "Mein Ansatz" : "My approach")),
-            "What I cover": t.modal_cover || (lang==='es'? "Lo que cubro" : (lang==='de'? "Was ich abdecke" : "What I cover")),
-            "Why Cloud ALM": t.modal_why_alm || (lang==='es'? "Por qué Cloud ALM" : (lang==='de'? "Warum Cloud ALM" : "Why Cloud ALM")),
-            "My role": t.modal_role || (lang==='es'? "Mi rol" : (lang==='de'? "Meine Rolle" : "My role")),
-            "Process Mining": t.modal_mining || (lang==='es'? "Process Mining" : (lang==='de'? "Process Mining" : "Process Mining")),
-            "Process Modeling (BPMN)": t.modal_modeling || (lang==='es'? "Modelado de procesos (BPMN)" : (lang==='de'? "Prozessmodellierung (BPMN)" : "Process Modeling (BPMN)")),
-            "Customer Journey & S/4HANA Readiness": t.modal_cj || (lang==='es'? "Customer Journey y preparación S/4HANA" : (lang==='de'? "Customer Journey & S/4HANA-Readiness" : "Customer Journey & S/4HANA Readiness")),
-            "Services": t.modal_services || (lang==='es'? "Servicios" : (lang==='de'? "Dienstleistungen" : "Services")),
-            "Outcome": t.modal_outcome || (lang==='es'? "Resultados" : (lang==='de'? "Ergebnisse" : "Outcome")),
-            "What I do": t.modal_do || (lang==='es'? "Qué hago" : (lang==='de'? "Was ich tue" : "What I do")),
-            "Value": t.modal_value || (lang==='es'? "Valor" : (lang==='de'? "Nutzen" : "Value")),
-            "On-site & Remote": t.modal_location || (lang==='es'? "Presencial y remoto" : (lang==='de'? "Vor Ort & Remote" : "On-site & Remote")),
-            "My commitment": t.modal_commitment || (lang==='es'? "Mi compromiso" : (lang==='de'? "Mein Engagement" : "My commitment"))
-        };
-        let html = `<div class="service-detail-title">${details.title}</div>`;
-        details.sections.forEach(section => {
-            let translatedHeading = headingMap[section.heading] || section.heading;
-            html += `<div class="service-detail-section"><h4>${translatedHeading}</h4>`;
-            if (Array.isArray(section.content)) {
-                html += `<ul>${section.content.map(item => `<li>${item}</li>`).join('')}</ul>`;
-            } else {
-                html += `<p>${section.content}</p>`;
-            }
-            html += `</div>`;
-        });
-        document.getElementById('modalBody').innerHTML = html;
-        document.getElementById('serviceModal').style.display = 'flex';
+        const texts = policyData[lang] || policyData.en;
+        let title = "", content = "";
+        if(type === 'privacy') { title = texts.privacy.split(':')[0]; content = texts.privacy; }
+        else if(type === 'terms') { title = texts.terms.split(':')[0]; content = texts.terms; }
+        else { title = texts.refund.split(':')[0]; content = texts.refund; }
+        document.getElementById('policyTitle').innerHTML = title;
+        document.getElementById('policyText').innerHTML = `<p>${content}</p>`;
+        document.getElementById('policyModal').style.display = 'flex';
     }
-
-    function setLanguage(lang) {
-        currentLang = lang;
-        const t = translations[lang];
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-            const key = el.getAttribute("data-i18n");
-            if (t[key]) {
-                if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-                    el.placeholder = t[key];
-                } else if (el.tagName === "BUTTON" && el.classList.contains("btn-sm")) {
-                    const span = el.querySelector("span");
-                    if (span && span.getAttribute("data-i18n") === "learn_more") span.innerHTML = t.learn_more;
-                } else {
-                    el.innerHTML = t[key];
-                }
-            }
-        });
-        document.querySelectorAll("[data-i18n='learn_more']").forEach(el => {
-            if (t.learn_more) el.innerHTML = t.learn_more;
-        });
-        document.querySelectorAll(".lang-btn").forEach(btn => {
-            if (btn.getAttribute("data-lang") === lang) {
-                btn.classList.add("active");
-            } else {
-                btn.classList.remove("active");
-            }
-        });
-    }
-
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const lang = btn.getAttribute("data-lang");
-            setLanguage(lang);
+    document.querySelectorAll('.policy-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const policyType = link.getAttribute('data-policy');
+            showPolicy(policyType);
         });
     });
+    document.querySelector('.modal-close-policy').addEventListener('click', () => { document.getElementById('policyModal').style.display = 'none'; });
+    window.addEventListener('click', (e) => { if(e.target === document.getElementById('policyModal')) document.getElementById('policyModal').style.display = 'none'; });
 
-    document.querySelectorAll("[data-modal]").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            const serviceId = btn.getAttribute("data-modal");
-            renderModal(serviceId);
-        });
-    });
-    document.querySelector(".modal-close").addEventListener("click", () => {
-        document.getElementById("serviceModal").style.display = "none";
-    });
-    window.addEventListener("click", (e) => {
-        const modal = document.getElementById("serviceModal");
-        if (e.target === modal) modal.style.display = "none";
-    });
-
+    const translations = { en: { hero_badge: "Freelance SAP Consultant · S/4HANA Public Cloud & Signavio", hero_desc: "Hey! I'm Liz — nice to meet you! I'm a freelance SAP consultant specialized in S/4HANA Public Cloud (Sourcing & Procurement), SAP Cloud ALM, and SAP Signavio...", cta_collab: "Let's collaborate", cta_services: "Explore services", location: "Logroño, Spain (travel to Germany, Switzerland)", quote: "\"I combine deep SAP expertise with a pragmatic, human approach...\"", vision_title: "Vision", mission_title: "Mission", about_badge: "Professional journey", about_title: "Experience that makes the difference", about_sub: "3 years as SAP consultant, 6 years in logistics & SAP MM.", services_badge: "My core services", services_title: "SAP solutions tailored to your journey", services_sub: "From Public Cloud implementation to process mining.", service1: "Configuration, testing, user documentation...", service2: "Implementation, operations, integration & API management...", service3: "Process Mining, Process Modeling...", service4: "End‑user documentation, go‑live support...", service5: "Accelerate your transition to S/4HANA...", service6: "Based in Logroño, Spain...", integration: "Connect SAP with Microsoft Teams, Jira...", process_mining: "Using SAP Signavio Process Intelligence...", contact_title: "Let’s shape your SAP future", contact_sub: "Ready to bring my expertise to your projects?", newsletter: "Yes, subscribe me", submit_btn: "Submit & connect", footer_tagline: "Agile, expert, and human‑centered SAP consulting.", contact: "Contact", legal: "Legal", privacy: "Privacy Policy", terms: "Terms & Conditions", refund: "Refund Policy", book_call: "Book a discovery call", learn_more: "Learn more", cert_title: "🎓 SAP Certifications", demo_badge: "Live demos & insights", demo_title: "See SAP solutions in action", demo_sub: "Explore real-world scenarios: S/4Hana Public Cloud, Signavio Process Intelligence, and Cloud ALM integration demos." },
+        es: { hero_badge: "Consultora SAP Freelance · S/4HANA Public Cloud & Signavio", hero_desc: "¡Hola! Soy Liz — encantada de conocerte...", cta_collab: "Colaboremos", cta_services: "Ver servicios", location: "Logroño, España (viajes a Alemania, Suiza)", quote: "\"Combino experiencia SAP con un enfoque pragmático...\"", vision_title: "Visión", mission_title: "Misión", about_badge: "Trayectoria profesional", about_title: "Experiencia que marca la diferencia", about_sub: "3 años como consultora SAP, 6 años en logística y SAP MM.", services_badge: "Mis servicios principales", services_title: "Soluciones SAP adaptadas a tu viaje", services_sub: "Desde implementación en nube pública hasta minería de procesos.", service1: "Configuración, pruebas, documentación...", service2: "Implementación, operaciones, integración...", service3: "Process Mining, Modelado...", service4: "Documentación de usuario final...", service5: "Acelera tu transición a S/4HANA...", service6: "Desde Logroño, España...", integration: "Conecta SAP con Microsoft Teams...", process_mining: "Utilizando SAP Signavio Process Intelligence...", contact_title: "Demos forma a tu futuro SAP", contact_sub: "¿Lista para incorporar mi experiencia?", newsletter: "Sí, suscríbeme", submit_btn: "Enviar", footer_tagline: "Consultoría SAP ágil, experta y centrada en las personas.", contact: "Contacto", legal: "Aviso legal", privacy: "Política de privacidad", terms: "Términos y condiciones", refund: "Política de reembolso", book_call: "Reserva una llamada", learn_more: "Más información", cert_title: "🎓 Certificaciones SAP", demo_badge: "Demostraciones en vivo", demo_title: "Vea SAP en acción", demo_sub: "Escenarios reales: S/4HANA Public Cloud, Signavio y Cloud ALM." },
+        de: { hero_badge: "Freiberufliche SAP-Beraterin · S/4HANA Public Cloud & Signavio", hero_desc: "Hallo, ich bin Liz — freiberufliche SAP-Beraterin...", cta_collab: "Gemeinsam arbeiten", cta_services: "Services entdecken", location: "Logroño, Spanien (Reisen nach Deutschland, Schweiz)", quote: "\"Ich verbinde fundierte SAP-Expertise...\"", vision_title: "Vision", mission_title: "Mission", about_badge: "Beruflicher Werdegang", about_title: "Erfahrung, die den Unterschied macht", about_sub: "3 Jahre als SAP-Beraterin, 6 Jahre in Logistik und SAP MM.", services_badge: "Meine Kernservices", services_title: "SAP-Lösungen für Ihre individuelle Reise", services_sub: "Von Public Cloud-Implementierung bis Process Mining.", service1: "Konfiguration, Tests, Benutzerdokumentation...", service2: "Implementierung, Betrieb, Integration...", service3: "Process Mining, Prozessmodellierung...", service4: "Endbenutzer-Dokumentation...", service5: "Beschleunigen Sie Ihre S/4HANA-Transition...", service6: "Mit Sitz in Logroño, Spanien...", integration: "Verbinden Sie SAP mit Microsoft Teams...", process_mining: "Mit SAP Signavio Process Intelligence...", contact_title: "Gestalten wir Ihre SAP-Zukunft", contact_sub: "Bereit, meine Expertise einzubringen?", newsletter: "Ja, abonnieren Sie mich", submit_btn: "Absenden", footer_tagline: "Agile, fachkundige und menschenzentrierte SAP-Beratung.", contact: "Kontakt", legal: "Rechtliches", privacy: "Datenschutzerklärung", terms: "AGB", refund: "Rückerstattungsrichtlinie", book_call: "Erstgespräch vereinbaren", learn_more: "Mehr erfahren", cert_title: "🎓 SAP-Zertifizierungen", demo_badge: "Live-Demos & Einblicke", demo_title: "SAP-Lösungen in Aktion", demo_sub: "Echtzeit-Szenarien: S/4HANA Public Cloud, Signavio und Cloud ALM." } };
+    let currentLang = "en";
+    function setLanguage(lang) { currentLang = lang; const t = translations[lang]; document.querySelectorAll("[data-i18n]").forEach(el => { const key = el.getAttribute("data-i18n"); if (t[key]) { if (el.tagName === "INPUT") el.placeholder = t[key]; else el.innerHTML = t[key]; } }); document.querySelectorAll(".lang-btn").forEach(btn => { if (btn.getAttribute("data-lang") === lang) btn.classList.add("active"); else btn.classList.remove("active"); }); }
+    document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang"))));
+    const modalDetails = { s4: { title: "SAP S/4HANA Public Cloud – Sourcing & Procurement", sections: [{ heading: "What I deliver", content: ["End-to-end configuration","Testing","User docs","Go-live support"] }] }, alm: { title: "SAP Cloud ALM", sections: [{ heading: "What I cover", content: ["Implementation","Operations","Integrations with MS Teams, Jira, etc."] }] }, signavio: { title: "SAP Signavio", sections: [{ heading: "Process Mining & Modeling", content: ["Analyze bottlenecks","BPMN modeling","Governance"] }] }, enablement: { title: "User Enablement", sections: [{ heading: "Services", content: ["Documentation","Workshops","Adoption"] }] }, readiness: { title: "S/4HANA Readiness", sections: [{ heading: "Fit-Gap", content: ["Analysis","Migration roadmap"] }] }, flexible: { title: "Location Support", sections: [{ heading: "On-site", content: ["Spain, Germany, Switzerland","Remote"] }] } };
+    function renderModal(serviceId) { const d = modalDetails[serviceId]; let html = `<div class="service-detail-title">${d.title}</div>`; d.sections.forEach(s => { html += `<div class="service-detail-section"><h4>${s.heading}</h4><ul>${s.content.map(i=>`<li>${i}</li>`).join('')}</ul></div>`; }); document.getElementById('modalBody').innerHTML = html; document.getElementById('serviceModal').style.display = 'flex'; }
+    document.querySelectorAll("[data-modal]").forEach(btn => btn.addEventListener("click", (e) => renderModal(btn.getAttribute("data-modal"))));
+    document.querySelector(".modal-close").addEventListener("click", () => document.getElementById("serviceModal").style.display = "none");
+    window.addEventListener("click", (e) => { const modal = document.getElementById("serviceModal"); if (e.target === modal) modal.style.display = "none"; });
     setLanguage("en");
-
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById('email').value.trim();
-        if(email === "") {
-            alert(translations[currentLang].contact_sub || "Please enter your email.");
-            return;
-        }
-        alert(`Thank you, ${email}! I'll get back to you within 24h.`);
-        document.getElementById('contactForm').reset();
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href === "#" || href === "") return;
-            const target = document.querySelector(href);
-            if(target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
+    document.getElementById('contactForm').addEventListener('submit', function(e) { e.preventDefault(); const email = document.getElementById('email').value.trim(); if(email === "") { alert("Please enter email."); return; } alert(`Thank you, ${email}! I'll get back within 24h.`); this.reset(); });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const href = this.getAttribute('href'); if(href === "#") return; const target = document.querySelector(href); if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); } }); });
 </script>
-
-<!-- Single Credly embed script for all badges -->
 <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+<div id="serviceModal" class="modal-policy" style="display: none;"><div class="policy-content"><span class="modal-close-policy" style="top:20px; right:28px;">&times;</span><div id="modalBody"></div></div></div>
 </body>
 </html>
