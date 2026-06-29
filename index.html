@@ -29,6 +29,42 @@
             z-index: 2;
         }
 
+        /* ===== LANG SWITCH ===== */
+        .lang-switch {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            padding: 16px 0 8px;
+            position: relative;
+            z-index: 10;
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.1rem;
+            padding: 6px 14px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            color: #4A627A;
+        }
+        .lang-btn span {
+            font-size: 0.8rem;
+        }
+        .lang-btn.active {
+            background: #EFF6F9;
+            color: #1D7A9C;
+            font-weight: 600;
+        }
+        .lang-btn:hover {
+            background: #EFF6F9;
+            transform: scale(1.05);
+        }
+
         /* ===== BUTTONS ===== */
         .btn-primary {
             display: inline-flex;
@@ -87,7 +123,7 @@
 
         /* ===== HERO ===== */
         .hero {
-            padding: 60px 0 40px;
+            padding: 20px 0 40px;
             position: relative;
             overflow: hidden;
             min-height: 100vh;
@@ -520,6 +556,9 @@
             .hero-name {
                 font-size: 2.6rem;
             }
+            .lang-switch {
+                justify-content: center;
+            }
         }
         @media (max-width: 600px) {
             .grid-2,
@@ -582,15 +621,24 @@
 </head>
 <body>
 
+    <!-- ===== LANG SWITCH ===== -->
+    <div class="container">
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">🇬🇧 <span>EN</span></button>
+            <button class="lang-btn" data-lang="es">🇪🇸 <span>ES</span></button>
+            <button class="lang-btn" data-lang="de">🇩🇪 <span>DE</span></button>
+        </div>
+    </div>
+
     <main id="app">
         <!-- ===== HERO ===== -->
         <section class="hero" id="hero-section">
             <canvas id="hero-canvas"></canvas>
             <div class="container hero-grid">
                 <div class="hero-content reveal visible">
-                    <span class="hero-badge">SAP Cloud ALM &amp; S/4HANA Sourcing &amp; Procurement Consultant</span>
+                    <span class="hero-badge" data-i18n="hero_badge">SAP Cloud ALM &amp; S/4HANA Sourcing &amp; Procurement Consultant</span>
                     <h2 class="hero-name">Liz Mariela Cespedes Lezcano</h2>
-                    <p class="hero-desc">SAP Certified Consultant specialised in S/4HANA Public Cloud (MM/Sourcing &amp; Procurement), Cloud ALM and Signavio. I deliver high‑impact projects for companies and am open to both direct corporate contracts and independent freelance engagements. Based in Logroño, Spain – available across Germany and Switzerland.</p>
+                    <p class="hero-desc" data-i18n="hero_desc">SAP Certified Consultant specialised in S/4HANA Public Cloud (MM/Sourcing &amp; Procurement), Cloud ALM and Signavio. I deliver high‑impact projects for companies and am open to both direct corporate contracts and independent freelance engagements. Based in Logroño, Spain – available across Germany and Switzerland.</p>
                     <div class="spec-list">
                         <div class="spec-item"><i class="fas fa-cloud"></i> S/4HANA Public Cloud</div>
                         <div class="spec-item"><i class="fas fa-chart-line"></i> SAP Signavio</div>
@@ -599,16 +647,16 @@
                         <div class="spec-item"><i class="fas fa-code-branch"></i> Integration &amp; API</div>
                     </div>
                     <div style="margin-top: 28px; display: flex; gap: 20px; flex-wrap: wrap;">
-                        <a href="#contact" class="btn-primary"><i class="fas fa-handshake"></i> Let's collaborate</a>
-                        <a href="#experience" class="btn-outline"><i class="fas fa-briefcase"></i> My experience</a>
+                        <a href="#contact" class="btn-primary"><i class="fas fa-handshake"></i> <span data-i18n="cta_collab">Let's collaborate</span></a>
+                        <a href="#experience" class="btn-outline"><i class="fas fa-briefcase"></i> <span data-i18n="cta_exp">My experience</span></a>
                     </div>
                 </div>
                 <div class="hero-image reveal visible reveal-delay-1">
                     <img class="profile-photo" src="Gemini_Generated_Image_jizjcojizjcojizj.png" alt="Liz Mariela Cespedes Lezcano" onerror="this.onerror=null; this.src='https://via.placeholder.com/200?text=Liz';" />
-                    <p><i class="fas fa-map-marker-alt"></i> Logroño, Spain · Travel to DE/CH</p>
-                    <p style="font-size: 0.85rem; margin-top: 8px;">⚡ 3+ years SAP consulting · 6+ years logistics &amp; SAP MM</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="location">Logroño, Spain · Travel to DE/CH</span></p>
+                    <p style="font-size: 0.85rem; margin-top: 8px;"><span data-i18n="xp_badge">⚡ 3+ years SAP consulting · 6+ years logistics &amp; SAP MM</span></p>
                     <div class="cert-badges">
-                        <h4>🎓 Certifications</h4>
+                        <h4 data-i18n="cert_title">🎓 Certifications</h4>
                         <div class="badges-container">
                             <div data-iframe-width="120" data-iframe-height="216" data-share-badge-id="06e4535f-bb4c-4f51-b92a-5ed31997d122" data-share-badge-host="https://www.credly.com"></div>
                             <div data-iframe-width="120" data-iframe-height="216" data-share-badge-id="571c3994-b2c4-4367-8e67-cd548db69588" data-share-badge-host="https://www.credly.com"></div>
@@ -625,7 +673,7 @@
             <div style="background: rgba(255,255,255,0.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: 48px; padding: 36px 32px; margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.3);">
                 <div>
                     <i class="fas fa-quote-left" style="font-size: 2.2rem; color:#1D7A9C; opacity: 0.5;"></i>
-                    <p style="font-size: 1.2rem; font-weight: 500;">"I combine deep SAP architecture knowledge with a results‑driven methodology. My work is 100% focused on delivering value: from greenfield S/4HANA Public Cloud implementations to complex integration landscapes and process intelligence with Signavio."</p>
+                    <p style="font-size: 1.2rem; font-weight: 500;" data-i18n="quote">"I combine deep SAP architecture knowledge with a results‑driven methodology. My work is 100% focused on delivering value: from greenfield S/4HANA Public Cloud implementations to complex integration landscapes and process intelligence with Signavio."</p>
                     <p style="margin-top: 10px; font-weight: 600;">— Liz Mariela</p>
                 </div>
             </div>
@@ -637,13 +685,13 @@
                 <div class="grid-2" style="gap: 48px;">
                     <div>
                         <i class="fas fa-eye inline-icon"></i>
-                        <h3>Professional approach</h3>
-                        <p>I combine deep SAP architecture knowledge with a results‑driven methodology. My work is 100% focused on delivering value: from greenfield S/4HANA Public Cloud implementations to complex integration landscapes and process intelligence with Signavio.</p>
+                        <h3 data-i18n="vision_title">Professional approach</h3>
+                        <p data-i18n="vision_text">I combine deep SAP architecture knowledge with a results‑driven methodology. My work is 100% focused on delivering value: from greenfield S/4HANA Public Cloud implementations to complex integration landscapes and process intelligence with Signavio.</p>
                     </div>
                     <div>
                         <i class="fas fa-handshake inline-icon"></i>
-                        <h3>Collaboration model</h3>
-                        <p>I work with enterprises, system integrators and mid‑sized companies. Engagement options: direct corporate contract, freelance project, or staff augmentation.</p>
+                        <h3 data-i18n="mission_title">Collaboration model</h3>
+                        <p data-i18n="mission_text">I work with enterprises, system integrators and mid‑sized companies. Engagement options: direct corporate contract, freelance project, or staff augmentation.</p>
                     </div>
                 </div>
             </div>
@@ -653,12 +701,13 @@
         <section id="experience" style="padding: 40px 0;">
             <div class="container reveal">
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <span class="hero-badge"><i class="fas fa-briefcase"></i> Career path</span>
-                    <h2 class="section-title">Professional experience</h2>
-                    <p class="section-sub" style="margin: 0 auto;">SAP Cloud ALM, S/4HANA Public Cloud, MM &amp; logistics transformation projects.</p>
+                    <span class="hero-badge"><i class="fas fa-briefcase"></i> <span data-i18n="exp_badge">Career path</span></span>
+                    <h2 class="section-title" data-i18n="exp_title">Professional experience</h2>
+                    <p class="section-sub" style="margin: 0 auto;" data-i18n="exp_sub">SAP Cloud ALM, S/4HANA Public Cloud, MM &amp; logistics transformation projects.</p>
                 </div>
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <!-- Cada item de experiencia se traduce completo con data-i18n -->
+                    <div class="timeline-item" data-i18n="exp1">
                         <h4>SAP Cloud ALM &amp; S/4HANA S&amp;P Consultant</h4>
                         <span class="company">Freelance Contract - Aderen</span>
                         <span class="date">05/2025 – Current · Logroño-Madrid, Spain</span>
@@ -671,7 +720,7 @@
                             <li>Managed UAT lifecycle: training materials, user training, test cycles using Cloud ALM Test Management and Analytics dashboards.</li>
                         </ul>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-i18n="exp2">
                         <h4>Junior SAP S/4HANA S&amp;P Consultant</h4>
                         <span class="company">Pariver S.A.</span>
                         <span class="date">08/2023 – 04/2025 · Zaragoza, Spain</span>
@@ -682,7 +731,7 @@
                             <li>Maintained and updated SAP S&amp;P (MM) process documentation.</li>
                         </ul>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-i18n="exp3">
                         <h4>Customer Service Analyst</h4>
                         <span class="company">Garnica Plywood S.A.U</span>
                         <span class="date">01/2022 – 06/2023 · Logroño, Spain</span>
@@ -692,7 +741,7 @@
                             <li>Created reports using Power BI.</li>
                         </ul>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-i18n="exp4">
                         <h4>Logistics Technician</h4>
                         <span class="company">Construcciones Metálicas Comansa S.A.</span>
                         <span class="date">10/2019 – 12/2021 · Navarra, Spain</span>
@@ -702,7 +751,7 @@
                             <li>Cost control, logistics plans, traffic control, work order release.</li>
                         </ul>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-i18n="exp5">
                         <h4>Project Logistics Technician</h4>
                         <span class="company">Nordex Energy Spain SAU</span>
                         <span class="date">10/2018 – 10/2019 · Navarra, Spain</span>
@@ -712,7 +761,7 @@
                             <li>Logistic cost control and optimization.</li>
                         </ul>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item" data-i18n="exp6">
                         <h4>Export Area Manager / Ex Shareholder</h4>
                         <span class="company">AgroFlex LTD</span>
                         <span class="date">02/2016 – 08/2018 · London, UK</span>
@@ -729,14 +778,14 @@
         <section style="padding: 40px 0; background: rgba(251,253,255,0.3); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
             <div class="container reveal">
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <span class="hero-badge"><i class="fas fa-rocket"></i> Recent engagements</span>
-                    <h2 class="section-title">Real impact across energy, manufacturing and logistics</h2>
+                    <span class="hero-badge"><i class="fas fa-rocket"></i> <span data-i18n="projects_badge">Recent engagements</span></span>
+                    <h2 class="section-title" data-i18n="projects_title">Real impact across energy, manufacturing and logistics</h2>
                 </div>
                 <div class="grid-2">
                     <div class="card">
                         <i class="fas fa-solar-panel icon-large"></i>
-                        <h3>Energy sector · S/4HANA Public Cloud Greenfield</h3>
-                        <p>Full implementation for a renewable energy company – Sourcing &amp; Procurement, Cloud ALM, go-live in 6 months.</p>
+                        <h3 data-i18n="project1_title">Energy sector · S/4HANA Public Cloud Greenfield</h3>
+                        <p data-i18n="project1_desc">Full implementation for a renewable energy company – Sourcing &amp; Procurement, Cloud ALM, go-live in 6 months.</p>
                         <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
                             <span class="company-badge">Cloud ALM</span>
                             <span class="company-badge">Implementation Support</span>
@@ -744,8 +793,8 @@
                     </div>
                     <div class="card">
                         <i class="fas fa-project-diagram icon-large"></i>
-                        <h3>Guided Implementation + Multi‑tool Integration</h3>
-                        <p>SAP Cloud ALM facilitates guided implementation using the SAP Activate methodology, offering tools for onboarding, solution design, testing, and deployment. It accelerates time‑to‑market by automating tasks and ensuring fit‑to‑standard processes. In this project, I integrated Cloud ALM with MS Teams (notifications), Jira (feature sync), and Azure DevOps (requirement &amp; defect replication).</p>
+                        <h3 data-i18n="project2_title">Guided Implementation + Multi‑tool Integration</h3>
+                        <p data-i18n="project2_desc">SAP Cloud ALM facilitates guided implementation using the SAP Activate methodology, offering tools for onboarding, solution design, testing, and deployment. It accelerates time‑to‑market by automating tasks and ensuring fit‑to‑standard processes. In this project, I integrated Cloud ALM with MS Teams (notifications), Jira (feature sync), and Azure DevOps (requirement &amp; defect replication).</p>
                         <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
                             <span class="company-badge">Cloud ALM</span>
                             <span class="company-badge">MS Teams</span>
@@ -755,8 +804,8 @@
                     </div>
                     <div class="card">
                         <i class="fas fa-chart-pie icon-large"></i>
-                        <h3>Process mining · Signavio + Celonis</h3>
-                        <p>Logistics process optimisation: 23% efficiency gain in order-to-cash using Signavio Process Intelligence.</p>
+                        <h3 data-i18n="project3_title">Process mining · Signavio + Celonis</h3>
+                        <p data-i18n="project3_desc">Logistics process optimisation: 23% efficiency gain in order-to-cash using Signavio Process Intelligence.</p>
                         <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
                             <span class="company-badge">Signavio</span>
                             <span class="company-badge">Celonis</span>
@@ -770,40 +819,40 @@
         <section id="services" style="padding: 40px 0;">
             <div class="container reveal">
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <span class="hero-badge"><i class="fas fa-cog"></i> Core competencies</span>
-                    <h2 class="section-title">Technical &amp; strategic capabilities</h2>
-                    <p class="section-sub" style="margin: 0 auto;">SAP solutions that drive transformation and operational excellence.</p>
+                    <span class="hero-badge"><i class="fas fa-cog"></i> <span data-i18n="comp_badge">Core competencies</span></span>
+                    <h2 class="section-title" data-i18n="comp_title">Technical &amp; strategic capabilities</h2>
+                    <p class="section-sub" style="margin: 0 auto;" data-i18n="comp_sub">SAP solutions that drive transformation and operational excellence.</p>
                 </div>
                 <div class="grid-3">
                     <div class="card reveal reveal-delay-1">
                         <i class="fas fa-cloud-upload-alt icon-large"></i>
-                        <h3>SAP S/4HANA Public Cloud</h3>
-                        <p>Sourcing &amp; Procurement · Full lifecycle implementation, configuration, testing, user documentation and go‑live support. Best‑practice procurement processes in the cloud.</p>
+                        <h3 data-i18n="serv1_title">SAP S/4HANA Public Cloud</h3>
+                        <p data-i18n="serv1_desc">Sourcing &amp; Procurement · Full lifecycle implementation, configuration, testing, user documentation and go‑live support. Best‑practice procurement processes in the cloud.</p>
                     </div>
                     <div class="card reveal reveal-delay-2">
                         <i class="fas fa-tachometer-alt icon-large"></i>
-                        <h3>SAP Cloud ALM</h3>
-                        <p>End‑to‑end operations, integration and API management. Native connectors to MS Teams (notifications), Jira (feature sync), Azure DevOps (requirements/defects), LeanIX, Signavio, ServiceNow, CHARM. Guided implementation with SAP Activate methodology.</p>
+                        <h3 data-i18n="serv2_title">SAP Cloud ALM</h3>
+                        <p data-i18n="serv2_desc">End‑to‑end operations, integration and API management. Native connectors to MS Teams (notifications), Jira (feature sync), Azure DevOps (requirements/defects), LeanIX, Signavio, ServiceNow, CHARM. Guided implementation with SAP Activate methodology.</p>
                     </div>
                     <div class="card reveal reveal-delay-3">
                         <i class="fas fa-project-diagram icon-large"></i>
-                        <h3>SAP Signavio</h3>
-                        <p>Process Mining, BPMN modeling, Customer Journey Mapping, Governance &amp; Repository, S/4HANA readiness and training.</p>
+                        <h3 data-i18n="serv3_title">SAP Signavio</h3>
+                        <p data-i18n="serv3_desc">Process Mining, BPMN modeling, Customer Journey Mapping, Governance &amp; Repository, S/4HANA readiness and training.</p>
                     </div>
                     <div class="card reveal reveal-delay-1">
                         <i class="fas fa-chalkboard-teacher icon-large"></i>
-                        <h3>User Enablement &amp; Support</h3>
-                        <p>End‑user documentation, hypercare, adoption workshops. Ensure your teams are confident and productive from day one.</p>
+                        <h3 data-i18n="serv4_title">User Enablement &amp; Support</h3>
+                        <p data-i18n="serv4_desc">End‑user documentation, hypercare, adoption workshops. Ensure your teams are confident and productive from day one.</p>
                     </div>
                     <div class="card reveal reveal-delay-2">
                         <i class="fas fa-road icon-large"></i>
-                        <h3>S/4HANA Readiness &amp; Fit‑Gap</h3>
-                        <p>Accelerated transition to S/4HANA using Signavio fit‑gap analysis, process harmonisation and cloud readiness assessments.</p>
+                        <h3 data-i18n="serv5_title">S/4HANA Readiness &amp; Fit‑Gap</h3>
+                        <p data-i18n="serv5_desc">Accelerated transition to S/4HANA using Signavio fit‑gap analysis, process harmonisation and cloud readiness assessments.</p>
                     </div>
                     <div class="card reveal reveal-delay-3">
                         <i class="fas fa-plug icon-large"></i>
-                        <h3>Integration &amp; API Management</h3>
-                        <p>Connect SAP with third‑party tools (Teams, Jira, Azure DevOps, LeanIX, Signavio, BPA, ServiceNow, CHARM). Robust, scalable integration architecture.</p>
+                        <h3 data-i18n="serv6_title">Integration &amp; API Management</h3>
+                        <p data-i18n="serv6_desc">Connect SAP with third‑party tools (Teams, Jira, Azure DevOps, LeanIX, Signavio, BPA, ServiceNow, CHARM). Robust, scalable integration architecture.</p>
                     </div>
                 </div>
             </div>
@@ -813,7 +862,7 @@
         <section style="padding: 20px 0 40px; background: rgba(251,253,255,0.3); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
             <div class="container reveal">
                 <div style="text-align: center;">
-                    <span class="hero-badge"><i class="fas fa-building"></i> Trusted by</span>
+                    <span class="hero-badge"><i class="fas fa-building"></i> <span data-i18n="trusted_badge">Trusted by</span></span>
                     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 24px;">
                         <span class="company-badge" style="font-size:1rem; padding:10px 24px;">Nordex Energy</span>
                         <span class="company-badge" style="font-size:1rem; padding:10px 24px;">Linden Comansa</span>
@@ -830,9 +879,9 @@
         <section style="padding: 40px 0;">
             <div class="container reveal">
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <span class="hero-badge"><i class="fas fa-play-circle"></i> Knowledge &amp; insights</span>
-                    <h2 class="section-title">Explore SAP solutions in action</h2>
-                    <p style="color:#4A627A; max-width: 700px; margin: 0 auto;">Real‑world demonstrations: S/4HANA Public Cloud, Signavio Process Intelligence, Cloud ALM integrations.</p>
+                    <span class="hero-badge"><i class="fas fa-play-circle"></i> <span data-i18n="video_badge">Knowledge &amp; insights</span></span>
+                    <h2 class="section-title" data-i18n="video_title">Explore SAP solutions in action</h2>
+                    <p style="color:#4A627A; max-width: 700px; margin: 0 auto;" data-i18n="video_sub">Real‑world demonstrations: S/4HANA Public Cloud, Signavio Process Intelligence, Cloud ALM integrations.</p>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; justify-items: center;">
                     <div style="background: rgba(255,255,255,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border-radius: 32px; overflow: hidden; transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); border: 1px solid rgba(255,255,255,0.3); width:100%; max-width:400px; box-shadow:0 8px 24px rgba(0,0,0,0.04);">
@@ -853,13 +902,13 @@
             <div class="contact-card reveal">
                 <div style="text-align: center; margin-bottom: 32px;">
                     <i class="fas fa-envelope-open-text" style="font-size: 2.8rem; color: #1D7A9C;"></i>
-                    <h2 class="section-title" style="margin-top: 12px;">Let's discuss your next project</h2>
-                    <p>Whether you need corporate consultancy or freelance expertise – I'm ready to support your team.</p>
+                    <h2 class="section-title" style="margin-top: 12px;" data-i18n="contact_title">Let's discuss your next project</h2>
+                    <p data-i18n="contact_sub">Whether you need corporate consultancy or freelance expertise – I'm ready to support your team.</p>
                 </div>
                 <form id="contactForm" action="#" method="post">
                     <div class="form-group"><input type="email" id="email" placeholder="Your email *" required /></div>
-                    <div class="form-group checkbox"><input type="checkbox" id="newsletter" checked style="width: auto;" /><label for="newsletter">Yes, subscribe me to the monthly SAP insights &amp; newsletter.</label></div>
-                    <div style="text-align: center; margin-top: 28px;"><button type="submit" class="btn-primary" style="border: none;"><i class="fas fa-paper-plane"></i> Submit &amp; connect</button></div>
+                    <div class="form-group checkbox"><input type="checkbox" id="newsletter" checked style="width: auto;" /><label for="newsletter" data-i18n="newsletter">Yes, subscribe me to the monthly SAP insights &amp; newsletter.</label></div>
+                    <div style="text-align: center; margin-top: 28px;"><button type="submit" class="btn-primary" style="border: none;"><i class="fas fa-paper-plane"></i> <span data-i18n="submit_btn">Submit &amp; connect</span></button></div>
                 </form>
             </div>
         </section>
@@ -882,23 +931,23 @@
             <div class="footer-grid">
                 <div>
                     <h3 style="color:white; margin-bottom: 16px;"><i class="fas fa-user-check"></i> Liz Mariela Cespedes Lezcano · SAP Consultant</h3>
-                    <p>Agile, expert, and human‑centered SAP consulting. Your partner for S/4HANA Public Cloud Sourcing &amp; Procurement, Cloud ALM, and Signavio.</p>
+                    <p data-i18n="footer_tagline">Agile, expert, and human‑centered SAP consulting. Your partner for S/4HANA Public Cloud Sourcing &amp; Procurement, Cloud ALM, and Signavio.</p>
                     <div class="social-icons" style="margin-top: 20px;">
                         <a href="https://www.linkedin.com/in/liz-mariela-cespedes-lezcano-375aa07a/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div>
-                    <h4 style="color:white; margin-bottom: 16px;">Contact</h4>
+                    <h4 style="color:white; margin-bottom: 16px;" data-i18n="contact_footer">Contact</h4>
                     <p><i class="fas fa-phone-alt"></i> +34 640832388</p>
                     <p><i class="fas fa-envelope"></i> mlezcano@mlcloudsolutions.com</p>
-                    <p><i class="fas fa-map-pin"></i> Logroño, Spain · Travel to DE/CH</p>
+                    <p><i class="fas fa-map-pin"></i> <span data-i18n="location_footer">Logroño, Spain · Travel to DE/CH</span></p>
                 </div>
                 <div>
-                    <h4 style="color:white; margin-bottom: 16px;">Legal</h4>
-                    <p><a class="policy-link" data-policy="privacy" style="color:#CCE2EC; text-decoration:none;">Privacy Policy</a></p>
-                    <p><a class="policy-link" data-policy="terms" style="color:#CCE2EC; text-decoration:none;">Terms &amp; Conditions</a></p>
-                    <p><a class="policy-link" data-policy="refund" style="color:#CCE2EC; text-decoration:none;">Refund Policy</a></p>
+                    <h4 style="color:white; margin-bottom: 16px;" data-i18n="legal_footer">Legal</h4>
+                    <p><a class="policy-link" data-policy="privacy" style="color:#CCE2EC; text-decoration:none;" data-i18n="privacy_link">Privacy Policy</a></p>
+                    <p><a class="policy-link" data-policy="terms" style="color:#CCE2EC; text-decoration:none;" data-i18n="terms_link">Terms &amp; Conditions</a></p>
+                    <p><a class="policy-link" data-policy="refund" style="color:#CCE2EC; text-decoration:none;" data-i18n="refund_link">Refund Policy</a></p>
                 </div>
             </div>
             <hr />
@@ -1028,17 +1077,32 @@
 
         // ===== POLICIES =====
         const policyData = {
-            privacy: "Privacy Policy: Your personal data is collected only for communication and service delivery. I do not share your information with third parties without consent. You have the right to access, rectify or delete your data by contacting mlezcano@mlcloudsolutions.com.",
-            terms: "Terms & Conditions: All consulting services are provided under a freelance agreement. Project scope, deliverables, and timelines are defined per contract. Payment terms are agreed in advance.",
-            refund: "Refund Policy: For digital services and consulting, refunds are subject to the specific contract terms. Unused pre-paid hours may be refunded within 14 days of purchase, less administration fees."
+            en: {
+                privacy: "Privacy Policy: Your personal data is collected only for communication and service delivery. I do not share your information with third parties without consent. You have the right to access, rectify or delete your data by contacting mlezcano@mlcloudsolutions.com.",
+                terms: "Terms & Conditions: All consulting services are provided under a freelance agreement. Project scope, deliverables, and timelines are defined per contract. Payment terms are agreed in advance.",
+                refund: "Refund Policy: For digital services and consulting, refunds are subject to the specific contract terms. Unused pre-paid hours may be refunded within 14 days of purchase, less administration fees."
+            },
+            es: {
+                privacy: "Política de Privacidad: Sus datos personales se recogen solo para comunicación y prestación de servicios. No comparto su información con terceros sin consentimiento. Tiene derecho a acceder, rectificar o eliminar sus datos contactando a mlezcano@mlcloudsolutions.com.",
+                terms: "Términos y Condiciones: Todos los servicios de consultoría se proporcionan bajo un acuerdo freelance. El alcance, entregables y plazos se definen por contrato. Los términos de pago se acuerdan por adelantado.",
+                refund: "Política de Reembolso: Para servicios digitales y consultoría, los reembolsos están sujetos a los términos específicos del contrato. Las horas prepagas no utilizadas pueden reembolsarse dentro de los 14 días posteriores a la compra, menos gastos administrativos."
+            },
+            de: {
+                privacy: "Datenschutzerklärung: Ihre personenbezogenen Daten werden nur für die Kommunikation und Dienstleistungserbringung erhoben. Ich gebe Ihre Daten nicht ohne Zustimmung an Dritte weiter. Sie haben das Recht, Ihre Daten zu kontaktieren unter mlezcano@mlcloudsolutions.com zu berichtigen oder löschen zu lassen.",
+                terms: "Allgemeine Geschäftsbedingungen: Alle Beratungsleistungen werden auf der Grundlage eines freiberuflichen Vertrags erbracht. Projektumfang, Ergebnisse und Zeitpläne werden vertraglich festgelegt. Zahlungsbedingungen werden im Voraus vereinbart.",
+                refund: "Rückerstattungsrichtlinie: Für digitale Dienste und Beratung gelten die spezifischen Vertragsbedingungen. Nicht genutzte vorausbezahlte Stunden können innerhalb von 14 Tagen nach Kauf abzüglich Verwaltungsgebühren erstattet werden."
+            }
         };
 
         function showPolicy(type) {
-            const content = policyData[type] || "Policy content not available.";
-            let title = "";
-            if (type === 'privacy') title = "Privacy Policy";
-            else if (type === 'terms') title = "Terms & Conditions";
-            else title = "Refund Policy";
+            const lang = currentLang;
+            const texts = policyData[lang] || policyData.en;
+            let title = "",
+                content = "";
+            if (type === 'privacy') { title = "Privacy Policy";
+                content = texts.privacy; } else if (type === 'terms') { title = "Terms & Conditions";
+                content = texts.terms; } else { title = "Refund Policy";
+                content = texts.refund; }
             document.getElementById('policyTitle').innerHTML = title;
             document.getElementById('policyText').innerHTML = `<p>${content}</p>`;
             document.getElementById('policyModal').style.display = 'flex';
@@ -1055,6 +1119,359 @@
                 'policyModal').style.display = 'none'; });
         window.addEventListener('click', (e) => { if (e.target === document.getElementById('policyModal')) document
                 .getElementById('policyModal').style.display = 'none'; });
+
+        // ===== TRANSLATIONS =====
+        const translations = {
+            en: {
+                hero_badge: "SAP Cloud ALM & S/4HANA Sourcing & Procurement Consultant",
+                hero_desc: "SAP Certified Consultant specialised in S/4HANA Public Cloud (MM/Sourcing & Procurement), Cloud ALM and Signavio. I deliver high‑impact projects for companies and am open to both direct corporate contracts and independent freelance engagements. Based in Logroño, Spain – available across Germany and Switzerland.",
+                cta_collab: "Let's collaborate",
+                cta_exp: "My experience",
+                location: "Logroño, Spain · Travel to DE/CH",
+                xp_badge: "⚡ 3+ years SAP consulting · 6+ years logistics & SAP MM",
+                cert_title: "🎓 Certifications",
+                quote: "\"I combine deep SAP architecture knowledge with a results‑driven methodology. My work is 100% focused on delivering value: from greenfield S/4HANA Public Cloud implementations to complex integration landscapes and process intelligence with Signavio.\"",
+                vision_title: "Professional approach",
+                mission_title: "Collaboration model",
+                vision_text: "I combine deep SAP architecture knowledge with a results‑driven methodology. My work is 100% focused on delivering value: from greenfield S/4HANA Public Cloud implementations to complex integration landscapes and process intelligence with Signavio.",
+                mission_text: "I work with enterprises, system integrators and mid‑sized companies. Engagement options: direct corporate contract, freelance project, or staff augmentation.",
+                exp_badge: "Career path",
+                exp_title: "Professional experience",
+                exp_sub: "SAP Cloud ALM, S/4HANA Public Cloud, MM & logistics transformation projects.",
+                exp1: `<h4>SAP Cloud ALM & S/4HANA S&P Consultant</h4>
+                       <span class="company">Freelance Contract - Aderen</span>
+                       <span class="date">05/2025 – Current · Logroño-Madrid, Spain</span>
+                       <ul>
+                           <li>SAP Cloud ALM & S/4HANA Public Cloud S&P greenfield implementation for foreign subsidiaries (Energy sector).</li>
+                           <li>Facilitated Fit-to-Standard workshops; captured detailed functional requirements using SAP Cloud ALM’s Requirements and Task Management tools.</li>
+                           <li>Configured MM module via Central Business Configuration (CBC): organizational structure, material master, PR/PO cycles, MIGO, MIRO, inventory integration.</li>
+                           <li>Ensured cross-module integration with SD and FI using Cloud ALM’s process traceability and integration monitoring.</li>
+                           <li>Executed data migration with SAP Migration Cockpit; tracked progress and data quality via Cloud ALM’s migration & defect management.</li>
+                           <li>Managed UAT lifecycle: training materials, user training, test cycles using Cloud ALM Test Management and Analytics dashboards.</li>
+                       </ul>`,
+                exp2: `<h4>Junior SAP S/4HANA S&P Consultant</h4>
+                       <span class="company">Pariver S.A.</span>
+                       <span class="date">08/2023 – 04/2025 · Zaragoza, Spain</span>
+                       <ul>
+                           <li>Participated in SAP S/4HANA On-Premise S&P (MM) Greenfield implementation: MM configuration, functional testing for procurement scenarios.</li>
+                           <li>Fit-to-standard workshops: AS-IS analysis and TO-BE process mapping.</li>
+                           <li>Configuration of required business processes; close work with IT team on testing and migration documentation.</li>
+                           <li>Maintained and updated SAP S&P (MM) process documentation.</li>
+                       </ul>`,
+                exp3: `<h4>Customer Service Analyst</h4>
+                       <span class="company">Garnica Plywood S.A.U</span>
+                       <span class="date">01/2022 – 06/2023 · Logroño, Spain</span>
+                       <ul>
+                           <li>Managed and merged Excel files from SAP SD database: error/duplicate correction, data analysis on customer view data.</li>
+                           <li>Provided feedback to stakeholders; collaborated on data entry, collection, monitoring, and trend forecasting.</li>
+                           <li>Created reports using Power BI.</li>
+                       </ul>`,
+                exp4: `<h4>Logistics Technician</h4>
+                       <span class="company">Construcciones Metálicas Comansa S.A.</span>
+                       <span class="date">10/2019 – 12/2021 · Navarra, Spain</span>
+                       <ul>
+                           <li>Production planning based on sales orders/stock; material procurement functions.</li>
+                           <li>Managed deliveries, returns, database updates on Microsoft Dynamics & Excel.</li>
+                           <li>Cost control, logistics plans, traffic control, work order release.</li>
+                       </ul>`,
+                exp5: `<h4>Project Logistics Technician</h4>
+                       <span class="company">Nordex Energy Spain SAU</span>
+                       <span class="date">10/2018 – 10/2019 · Navarra, Spain</span>
+                       <ul>
+                           <li>Designed logistics plans, coordinated shipments and tracking (SAP MM).</li>
+                           <li>Traffic control, invoice closing in JDEdwards, transport document preparation, NC management.</li>
+                           <li>Logistic cost control and optimization.</li>
+                       </ul>`,
+                exp6: `<h4>Export Area Manager / Ex Shareholder</h4>
+                       <span class="company">AgroFlex LTD</span>
+                       <span class="date">02/2016 – 08/2018 · London, UK</span>
+                       <ul>
+                           <li>Planned sales budgets, pricing, investments, expenses; prospecting and distributor motivation.</li>
+                           <li>Developed promotions, commercial actions; set objectives and marketing plans.</li>
+                       </ul>`,
+                projects_badge: "Recent engagements",
+                projects_title: "Real impact across energy, manufacturing and logistics",
+                project1_title: "Energy sector · S/4HANA Public Cloud Greenfield",
+                project1_desc: "Full implementation for a renewable energy company – Sourcing & Procurement, Cloud ALM, go-live in 6 months.",
+                project2_title: "Guided Implementation + Multi‑tool Integration",
+                project2_desc: "SAP Cloud ALM facilitates guided implementation using the SAP Activate methodology, offering tools for onboarding, solution design, testing, and deployment. It accelerates time‑to‑market by automating tasks and ensuring fit‑to‑standard processes. In this project, I integrated Cloud ALM with MS Teams (notifications), Jira (feature sync), and Azure DevOps (requirement & defect replication).",
+                project3_title: "Process mining · Signavio + Celonis",
+                project3_desc: "Logistics process optimisation: 23% efficiency gain in order-to-cash using Signavio Process Intelligence.",
+                comp_badge: "Core competencies",
+                comp_title: "Technical & strategic capabilities",
+                comp_sub: "SAP solutions that drive transformation and operational excellence.",
+                serv1_title: "SAP S/4HANA Public Cloud",
+                serv1_desc: "Sourcing & Procurement · Full lifecycle implementation, configuration, testing, user documentation and go‑live support. Best‑practice procurement processes in the cloud.",
+                serv2_title: "SAP Cloud ALM",
+                serv2_desc: "End‑to‑end operations, integration and API management. Native connectors to MS Teams (notifications), Jira (feature sync), Azure DevOps (requirements/defects), LeanIX, Signavio, ServiceNow, CHARM. Guided implementation with SAP Activate methodology.",
+                serv3_title: "SAP Signavio",
+                serv3_desc: "Process Mining, BPMN modeling, Customer Journey Mapping, Governance & Repository, S/4HANA readiness and training.",
+                serv4_title: "User Enablement & Support",
+                serv4_desc: "End‑user documentation, hypercare, adoption workshops. Ensure your teams are confident and productive from day one.",
+                serv5_title: "S/4HANA Readiness & Fit‑Gap",
+                serv5_desc: "Accelerated transition to S/4HANA using Signavio fit‑gap analysis, process harmonisation and cloud readiness assessments.",
+                serv6_title: "Integration & API Management",
+                serv6_desc: "Connect SAP with third‑party tools (Teams, Jira, Azure DevOps, LeanIX, Signavio, BPA, ServiceNow, CHARM). Robust, scalable integration architecture.",
+                trusted_badge: "Trusted by",
+                video_badge: "Knowledge & insights",
+                video_title: "Explore SAP solutions in action",
+                video_sub: "Real‑world demonstrations: S/4HANA Public Cloud, Signavio Process Intelligence, Cloud ALM integrations.",
+                contact_title: "Let's discuss your next project",
+                contact_sub: "Whether you need corporate consultancy or freelance expertise – I'm ready to support your team.",
+                newsletter: "Yes, subscribe me to the monthly SAP insights & newsletter.",
+                submit_btn: "Submit & connect",
+                footer_tagline: "Agile, expert, and human‑centered SAP consulting. Your partner for S/4HANA Public Cloud Sourcing & Procurement, Cloud ALM, and Signavio.",
+                contact_footer: "Contact",
+                legal_footer: "Legal",
+                privacy_link: "Privacy Policy",
+                terms_link: "Terms & Conditions",
+                refund_link: "Refund Policy",
+                location_footer: "Logroño, Spain · Travel to DE/CH"
+            },
+            es: {
+                hero_badge: "Consultora SAP Cloud ALM y S/4HANA Sourcing & Procurement",
+                hero_desc: "Consultora SAP certificada especializada en S/4HANA Public Cloud (MM/Sourcing & Procurement), Cloud ALM y Signavio. Entrego proyectos de alto impacto para empresas y estoy abierta a contratos corporativos directos y a compromisos freelance independientes. Con sede en Logroño, España – disponible en Alemania y Suiza.",
+                cta_collab: "Colaboremos",
+                cta_exp: "Mi experiencia",
+                location: "Logroño, España · Viajes a DE/CH",
+                xp_badge: "⚡ 3+ años consultoría SAP · 6+ años logística y SAP MM",
+                cert_title: "🎓 Certificaciones",
+                quote: "\"Combino un profundo conocimiento de la arquitectura SAP con una metodología orientada a resultados. Mi trabajo está 100% enfocado en entregar valor: desde implementaciones greenfield de S/4HANA Public Cloud hasta paisajes de integración complejos e inteligencia de procesos con Signavio.\"",
+                vision_title: "Enfoque profesional",
+                mission_title: "Modelo de colaboración",
+                vision_text: "Combino un profundo conocimiento de la arquitectura SAP con una metodología orientada a resultados. Mi trabajo está 100% enfocado en entregar valor: desde implementaciones greenfield de S/4HANA Public Cloud hasta paisajes de integración complejos e inteligencia de procesos con Signavio.",
+                mission_text: "Trabajo con empresas, integradores de sistemas y empresas medianas. Opciones de compromiso: contrato corporativo directo, proyecto freelance o aumento de personal.",
+                exp_badge: "Trayectoria profesional",
+                exp_title: "Experiencia profesional",
+                exp_sub: "Proyectos de transformación con SAP Cloud ALM, S/4HANA Public Cloud, MM y logística.",
+                exp1: `<h4>Consultora SAP Cloud ALM y S/4HANA S&P</h4>
+                       <span class="company">Contrato Freelance - Aderen</span>
+                       <span class="date">05/2025 – Actual · Logroño-Madrid, España</span>
+                       <ul>
+                           <li>Implementación greenfield de S/4HANA Public Cloud S&P y SAP Cloud ALM para filiales extranjeras (sector energético).</li>
+                           <li>Facilité talleres Fit-to-Standard; capturé requisitos funcionales detallados usando las herramientas de Requisitos y Gestión de Tareas de SAP Cloud ALM.</li>
+                           <li>Configuré el módulo MM mediante Central Business Configuration (CBC): estructura organizativa, maestro de materiales, ciclos de PR/PO, MIGO, MIRO, integración de inventario.</li>
+                           <li>Aseguré la integración entre módulos con SD y FI usando la trazabilidad de procesos y monitoreo de integración de Cloud ALM.</li>
+                           <li>Ejecuté migración de datos con SAP Migration Cockpit; seguí el progreso y la calidad de los datos mediante la gestión de migración y defectos de Cloud ALM.</li>
+                           <li>Gestioné el ciclo de vida de UAT: materiales de formación, capacitación de usuarios, ciclos de prueba usando la Gestión de Pruebas y paneles de análisis de Cloud ALM.</li>
+                       </ul>`,
+                exp2: `<h4>Consultora Junior SAP S/4HANA S&P</h4>
+                       <span class="company">Pariver S.A.</span>
+                       <span class="date">08/2023 – 04/2025 · Zaragoza, España</span>
+                       <ul>
+                           <li>Participé en la implementación Greenfield de SAP S/4HANA On-Premise S&P (MM): configuración MM, pruebas funcionales para escenarios de compras.</li>
+                           <li>Talleres Fit-to-standard: análisis AS-IS y mapeo de procesos TO-BE.</li>
+                           <li>Configuración de los procesos de negocio requeridos; trabajo estrecho con el equipo de TI en pruebas y documentación de migración.</li>
+                           <li>Mantuve y actualicé la documentación de procesos SAP S&P (MM).</li>
+                       </ul>`,
+                exp3: `<h4>Analista de Servicio al Cliente</h4>
+                       <span class="company">Garnica Plywood S.A.U</span>
+                       <span class="date">01/2022 – 06/2023 · Logroño, España</span>
+                       <ul>
+                           <li>Gestioné y fusioné archivos Excel de la base de datos SAP SD: corrección de errores/duplicados, análisis de datos de vista de clientes.</li>
+                           <li>Proporcioné retroalimentación a las partes interesadas; colaboré en la entrada, recopilación, monitoreo y pronóstico de tendencias.</li>
+                           <li>Creé informes usando Power BI.</li>
+                       </ul>`,
+                exp4: `<h4>Técnica de Logística</h4>
+                       <span class="company">Construcciones Metálicas Comansa S.A.</span>
+                       <span class="date">10/2019 – 12/2021 · Navarra, España</span>
+                       <ul>
+                           <li>Planificación de producción basada en pedidos de ventas/stock; funciones de abastecimiento de materiales.</li>
+                           <li>Gestioné entregas, devoluciones, actualizaciones de bases de datos en Microsoft Dynamics & Excel.</li>
+                           <li>Control de costes, planes logísticos, control de tráfico, liberación de órdenes de trabajo.</li>
+                       </ul>`,
+                exp5: `<h4>Técnica de Logística de Proyectos</h4>
+                       <span class="company">Nordex Energy Spain SAU</span>
+                       <span class="date">10/2018 – 10/2019 · Navarra, España</span>
+                       <ul>
+                           <li>Diseñé planes logísticos, coordiné envíos y seguimiento (SAP MM).</li>
+                           <li>Control de tráfico, cierre de facturas en JDEdwards, preparación de documentos de transporte, gestión de NC.</li>
+                           <li>Control y optimización de costes logísticos.</li>
+                       </ul>`,
+                exp6: `<h4>Export Area Manager / Ex Shareholder</h4>
+                       <span class="company">AgroFlex LTD</span>
+                       <span class="date">02/2016 – 08/2018 · Londres, Reino Unido</span>
+                       <ul>
+                           <li>Planificación de presupuestos de ventas, precios, inversiones, gastos; prospección y motivación de distribuidores.</li>
+                           <li>Desarrollo de promociones, acciones comerciales; establecimiento de objetivos y planes de marketing.</li>
+                       </ul>`,
+                projects_badge: "Proyectos recientes",
+                projects_title: "Impacto real en energía, manufactura y logística",
+                project1_title: "Sector energético · S/4HANA Public Cloud Greenfield",
+                project1_desc: "Implementación completa para una empresa de energías renovables – Sourcing & Procurement, Cloud ALM, puesta en marcha en 6 meses.",
+                project2_title: "Implementación guiada + integración multi‑herramienta",
+                project2_desc: "SAP Cloud ALM facilita la implementación guiada mediante la metodología SAP Activate, ofreciendo herramientas para onboarding, diseño de soluciones, pruebas y despliegue. Acelera el time‑to‑market automatizando tareas y asegurando procesos fit‑to‑standard. En este proyecto, integré Cloud ALM con MS Teams (notificaciones), Jira (sincronización de funcionalidades) y Azure DevOps (replicación de requisitos y defectos).",
+                project3_title: "Minería de procesos · Signavio + Celonis",
+                project3_desc: "Optimización de procesos logísticos: 23% de ganancia en eficiencia en el ciclo order‑to‑cash usando Signavio Process Intelligence.",
+                comp_badge: "Competencias principales",
+                comp_title: "Capacidades técnicas y estratégicas",
+                comp_sub: "Soluciones SAP que impulsan la transformación y la excelencia operativa.",
+                serv1_title: "SAP S/4HANA Public Cloud",
+                serv1_desc: "Sourcing & Procurement · Implementación de ciclo de vida completo, configuración, pruebas, documentación de usuario y soporte de puesta en marcha. Procesos de compra de mejores prácticas en la nube.",
+                serv2_title: "SAP Cloud ALM",
+                serv2_desc: "Operaciones de extremo a extremo, integración y gestión de API. Conectores nativos a MS Teams (notificaciones), Jira (sincronización de funcionalidades), Azure DevOps (requisitos/defectos), LeanIX, Signavio, ServiceNow, CHARM. Implementación guiada con metodología SAP Activate.",
+                serv3_title: "SAP Signavio",
+                serv3_desc: "Minería de procesos, modelado BPMN, mapeo del viaje del cliente, gobernanza y repositorio, preparación para S/4HANA y formación.",
+                serv4_title: "Habilitación de usuarios y soporte",
+                serv4_desc: "Documentación de usuario final, hipercuidado, talleres de adopción. Asegura que tus equipos estén seguros y productivos desde el primer día.",
+                serv5_title: "Preparación para S/4HANA y Fit‑Gap",
+                serv5_desc: "Transición acelerada a S/4HANA mediante análisis de ajuste de brechas con Signavio, armonización de procesos y evaluaciones de preparación para la nube.",
+                serv6_title: "Integración y gestión de API",
+                serv6_desc: "Conecta SAP con herramientas de terceros (Teams, Jira, Azure DevOps, LeanIX, Signavio, BPA, ServiceNow, CHARM). Arquitectura de integración robusta y escalable.",
+                trusted_badge: "Empresas que confían",
+                video_badge: "Conocimiento y perspectivas",
+                video_title: "Explora soluciones SAP en acción",
+                video_sub: "Demostraciones del mundo real: S/4HANA Public Cloud, Signavio Process Intelligence, integraciones con Cloud ALM.",
+                contact_title: "Hablemos sobre tu próximo proyecto",
+                contact_sub: "Ya sea que necesites consultoría corporativa o expertise freelance – estoy lista para apoyar a tu equipo.",
+                newsletter: "Sí, suscríbeme al boletín mensual de insights SAP.",
+                submit_btn: "Enviar y conectar",
+                footer_tagline: "Consultoría SAP ágil, experta y centrada en las personas. Tu socio para S/4HANA Public Cloud Sourcing & Procurement, Cloud ALM y Signavio.",
+                contact_footer: "Contacto",
+                legal_footer: "Aviso legal",
+                privacy_link: "Política de privacidad",
+                terms_link: "Términos y condiciones",
+                refund_link: "Política de reembolso",
+                location_footer: "Logroño, España · Viajes a DE/CH"
+            },
+            de: {
+                hero_badge: "SAP Cloud ALM und S/4HANA Sourcing & Procurement Beraterin",
+                hero_desc: "SAP-zertifizierte Beraterin mit Schwerpunkt S/4HANA Public Cloud (MM/Sourcing & Procurement), Cloud ALM und Signavio. Ich liefere wirkungsvolle Projekte für Unternehmen und bin offen für direkte Unternehmensverträge sowie freiberufliche Engagements. Mit Sitz in Logroño, Spanien – verfügbar in Deutschland und der Schweiz.",
+                cta_collab: "Gemeinsam arbeiten",
+                cta_exp: "Meine Erfahrung",
+                location: "Logroño, Spanien · Reisen nach DE/CH",
+                xp_badge: "⚡ 3+ Jahre SAP-Beratung · 6+ Jahre Logistik und SAP MM",
+                cert_title: "🎓 Zertifizierungen",
+                quote: "\"Ich verbinde fundiertes SAP-Architekturwissen mit einer ergebnisorientierten Methodik. Meine Arbeit ist zu 100% auf die Wertschöpfung ausgerichtet: von Greenfield-S/4HANA-Public-Cloud-Implementierungen bis hin zu komplexen Integrationslandschaften und Process Intelligence mit Signavio.\"",
+                vision_title: "Professioneller Ansatz",
+                mission_title: "Kollaborationsmodell",
+                vision_text: "Ich verbinde fundiertes SAP-Architekturwissen mit einer ergebnisorientierten Methodik. Meine Arbeit ist zu 100% auf die Wertschöpfung ausgerichtet: von Greenfield-S/4HANA-Public-Cloud-Implementierungen bis hin zu komplexen Integrationslandschaften und Process Intelligence mit Signavio.",
+                mission_text: "Ich arbeite mit Unternehmen, Systemintegratoren und mittelständischen Unternehmen. Engagement-Optionen: direkter Unternehmensvertrag, freiberufliches Projekt oder Personalaufstockung.",
+                exp_badge: "Beruflicher Werdegang",
+                exp_title: "Berufliche Erfahrung",
+                exp_sub: "Projekte mit SAP Cloud ALM, S/4HANA Public Cloud, MM und Logistiktransformation.",
+                exp1: `<h4>SAP Cloud ALM und S/4HANA S&P Beraterin</h4>
+                       <span class="company">Freiberuflich - Aderen</span>
+                       <span class="date">05/2025 – aktuell · Logroño-Madrid, Spanien</span>
+                       <ul>
+                           <li>Greenfield-Implementierung von S/4HANA Public Cloud S&P und SAP Cloud ALM für ausländische Tochtergesellschaften (Energiesektor).</li>
+                           <li>Durchführung von Fit-to-Standard-Workshops; Erfassung detaillierter funktionaler Anforderungen mit den Tools für Anforderungen und Aufgabenmanagement von SAP Cloud ALM.</li>
+                           <li>Konfiguration des MM-Moduls über Central Business Configuration (CBC): Organisationsstruktur, Materialstamm, PR/PO-Zyklen, MIGO, MIRO, Bestandsintegration.</li>
+                           <li>Sicherstellung der modulübergreifenden Integration mit SD und FI mithilfe der Prozessrückverfolgbarkeit und Integrationsüberwachung von Cloud ALM.</li>
+                           <li>Durchführung der Datenmigration mit SAP Migration Cockpit; Verfolgung des Fortschritts und der Datenqualität über das Migrations- und Fehlermanagement von Cloud ALM.</li>
+                           <li>Verwaltung des UAT-Lebenszyklus: Schulungsmaterialien, Benutzerschulungen, Testzyklen mit dem Testmanagement und den Analyse-Dashboards von Cloud ALM.</li>
+                       </ul>`,
+                exp2: `<h4>Junior SAP S/4HANA S&P Beraterin</h4>
+                       <span class="company">Pariver S.A.</span>
+                       <span class="date">08/2023 – 04/2025 · Zaragoza, Spanien</span>
+                       <ul>
+                           <li>Teilnahme an der Greenfield-Implementierung von SAP S/4HANA On-Premise S&P (MM): MM-Konfiguration, Funktionstests für Beschaffungsszenarien.</li>
+                           <li>Fit-to-Standard-Workshops: AS-IS-Analyse und TO-BE-Prozessabbildung.</li>
+                           <li>Konfiguration der erforderlichen Geschäftsprozesse; enge Zusammenarbeit mit dem IT-Team bei Tests und Migrationsdokumentation.</li>
+                           <li>Pflege und Aktualisierung der SAP S&P (MM)-Prozessdokumentation.</li>
+                       </ul>`,
+                exp3: `<h4>Customer Service Analyst</h4>
+                       <span class="company">Garnica Plywood S.A.U</span>
+                       <span class="date">01/2022 – 06/2023 · Logroño, Spanien</span>
+                       <ul>
+                           <li>Verwaltung und Zusammenführung von Excel-Dateien aus der SAP-SD-Datenbank: Fehler-/Duplikatkorrektur, Datenanalyse der Kundensichtdaten.</li>
+                           <li>Bereitstellung von Feedback an Stakeholder; Zusammenarbeit bei Dateneingabe, -sammlung, -überwachung und Trendprognose.</li>
+                           <li>Erstellung von Berichten mit Power BI.</li>
+                       </ul>`,
+                exp4: `<h4>Logistiktechnikerin</h4>
+                       <span class="company">Construcciones Metálicas Comansa S.A.</span>
+                       <span class="date">10/2019 – 12/2021 · Navarra, Spanien</span>
+                       <ul>
+                           <li>Produktionsplanung basierend auf Verkaufsaufträgen/Bestand; Materialbeschaffungsfunktionen.</li>
+                           <li>Verwaltung von Lieferungen, Retouren, Datenbankaktualisierungen in Microsoft Dynamics & Excel.</li>
+                           <li>Kostenkontrolle, Logistikpläne, Verkehrskontrolle, Arbeitsauftragsfreigabe.</li>
+                       </ul>`,
+                exp5: `<h4>Projektlogistiktechnikerin</h4>
+                       <span class="company">Nordex Energy Spain SAU</span>
+                       <span class="date">10/2018 – 10/2019 · Navarra, Spanien</span>
+                       <ul>
+                           <li>Erstellung von Logistikplänen, Koordination von Sendungen und Sendungsverfolgung (SAP MM).</li>
+                           <li>Verkehrskontrolle, Rechnungsabschluss in JDEdwards, Transportdokumentenvorbereitung, NC-Verwaltung.</li>
+                           <li>Logistische Kostenkontrolle und -optimierung.</li>
+                       </ul>`,
+                exp6: `<h4>Export Area Manager / Ex Shareholder</h4>
+                       <span class="company">AgroFlex LTD</span>
+                       <span class="date">02/2016 – 08/2018 · London, UK</span>
+                       <ul>
+                           <li>Planung von Verkaufsbudgets, Preisen, Investitionen, Ausgaben; Prospektion und Motivation von Distributoren.</li>
+                           <li>Entwicklung von Promotionen, kommerziellen Aktionen; Festlegung von Zielen und Marketingplänen.</li>
+                       </ul>`,
+                projects_badge: "Aktuelle Projekte",
+                projects_title: "Reale Wirkung in Energie, Fertigung und Logistik",
+                project1_title: "Energiesektor · S/4HANA Public Cloud Greenfield",
+                project1_desc: "Vollständige Implementierung für ein Unternehmen für erneuerbare Energien – Sourcing & Procurement, Cloud ALM, Go-Live in 6 Monaten.",
+                project2_title: "Geführte Implementierung + Multi-Tool-Integration",
+                project2_desc: "SAP Cloud ALM ermöglicht eine geführte Implementierung mit der SAP Activate-Methode und bietet Tools für Onboarding, Lösungsdesign, Tests und Bereitstellung. Es beschleunigt die Time‑to‑Market durch Automatisierung von Aufgaben und stellt Fit‑to‑Standard-Prozesse sicher. In diesem Projekt integrierte ich Cloud ALM mit MS Teams (Benachrichtigungen), Jira (Feature-Sync) und Azure DevOps (Anforderungs- und Fehlerreplikation).",
+                project3_title: "Process Mining · Signavio + Celonis",
+                project3_desc: "Logistikprozessoptimierung: 23% Effizienzsteigerung im Order‑to‑Cash-Zyklus mit Signavio Process Intelligence.",
+                comp_badge: "Kernkompetenzen",
+                comp_title: "Technische und strategische Fähigkeiten",
+                comp_sub: "SAP-Lösungen, die Transformation und operative Exzellenz vorantreiben.",
+                serv1_title: "SAP S/4HANA Public Cloud",
+                serv1_desc: "Sourcing & Procurement · Vollständiger Lebenszyklus, Konfiguration, Tests, Benutzerdokumentation und Go‑Live-Unterstützung. Best‑Practice-Beschaffungsprozesse in der Cloud.",
+                serv2_title: "SAP Cloud ALM",
+                serv2_desc: "End‑to‑End-Betrieb, Integration und API-Management. Native Konnektoren zu MS Teams (Benachrichtigungen), Jira (Feature-Sync), Azure DevOps (Anforderungen/Fehler), LeanIX, Signavio, ServiceNow, CHARM. Geführte Implementierung mit SAP Activate-Methodik.",
+                serv3_title: "SAP Signavio",
+                serv3_desc: "Process Mining, BPMN-Modellierung, Customer Journey Mapping, Governance & Repository, S/4HANA-Readiness und Schulung.",
+                serv4_title: "Benutzeraktivierung & Support",
+                serv4_desc: "Endbenutzer-Dokumentation, Hypercare, Einführungsworkshops. Stellen Sie sicher, dass Ihre Teams vom ersten Tag an sicher und produktiv sind.",
+                serv5_title: "S/4HANA-Readiness & Fit‑Gap",
+                serv5_desc: "Beschleunigte Transition zu S/4HANA mit Signavio-Fit‑Gap-Analyse, Prozessharmonisierung und Cloud-Readiness-Bewertungen.",
+                serv6_title: "Integration & API-Management",
+                serv6_desc: "Verbinden Sie SAP mit Drittanbieter-Tools (Teams, Jira, Azure DevOps, LeanIX, Signavio, BPA, ServiceNow, CHARM). Robuste, skalierbare Integrationsarchitektur.",
+                trusted_badge: "Vertrauen unserer Kunden",
+                video_badge: "Wissen & Einblicke",
+                video_title: "SAP-Lösungen in Aktion erleben",
+                video_sub: "Praxisnahe Demonstrationen: S/4HANA Public Cloud, Signavio Process Intelligence, Cloud ALM-Integrationen.",
+                contact_title: "Sprechen wir über Ihr nächstes Projekt",
+                contact_sub: "Ob Sie Unternehmensberatung oder freiberufliche Expertise benötigen – ich bin bereit, Ihr Team zu unterstützen.",
+                newsletter: "Ja, abonnieren Sie mich für den monatlichen SAP-Insights-Newsletter.",
+                submit_btn: "Absenden & verbinden",
+                footer_tagline: "Agile, fachkundige und menschenzentrierte SAP-Beratung. Ihr Partner für S/4HANA Public Cloud Sourcing & Procurement, Cloud ALM und Signavio.",
+                contact_footer: "Kontakt",
+                legal_footer: "Rechtliches",
+                privacy_link: "Datenschutzerklärung",
+                terms_link: "AGB",
+                refund_link: "Rückerstattungsrichtlinie",
+                location_footer: "Logroño, Spanien · Reisen nach DE/CH"
+            }
+        };
+
+        let currentLang = "en";
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            if (!t) return;
+
+            // Actualizar elementos con data-i18n (pueden contener HTML)
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (t[key] !== undefined) {
+                    const isHtml = t[key].includes('<');
+                    if (isHtml) {
+                        el.innerHTML = t[key];
+                    } else {
+                        el.textContent = t[key];
+                    }
+                }
+            });
+
+            // Actualizar botones de idioma
+            document.querySelectorAll(".lang-btn").forEach(btn => {
+                if (btn.getAttribute("data-lang") === lang) btn.classList.add("active");
+                else btn.classList.remove("active");
+            });
+        }
+
+        document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => setLanguage(btn
+            .getAttribute("data-lang"))));
+        setLanguage("en");
 
         // ===== CONTACT FORM =====
         document.getElementById('contactForm').addEventListener('submit', function(e) {
